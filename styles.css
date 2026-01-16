@@ -42,6 +42,21 @@ body {
     width: 100%;
     zoom: clamp(0.8, 100vw / 1920, 1.2);
     padding-bottom: 0;
+    font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+}
+
+/* Make all text same size, color, and uppercase */
+*, *::before, *::after {
+    text-transform: uppercase;
+    color: var(--color-grey-very-light) !important;
+    font-size: clamp(0.75rem, 1.5vw, 0.95rem) !important;
+}
+
+/* Override for specific elements that should maintain their styling */
+input, textarea, button {
+    text-transform: uppercase;
+    color: var(--color-grey-very-light) !important;
+    font-size: clamp(0.75rem, 1.5vw, 0.95rem) !important;
 }
 
 .container {
