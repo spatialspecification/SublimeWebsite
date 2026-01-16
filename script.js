@@ -99,10 +99,8 @@ document.querySelectorAll('.contact-form-container').forEach(el => {
 
 // Content Panel functionality
 const contentPanel = document.getElementById('contentPanel');
-const aboutDropdown = document.getElementById('aboutDropdown');
 const servicesDropdown = document.getElementById('servicesDropdown');
 const contactDropdown = document.getElementById('contactDropdown');
-const aboutContent = document.getElementById('aboutDropdownContent');
 const servicesContent = document.getElementById('servicesDropdownContent');
 const contactContent = document.getElementById('contactDropdownContent');
 
@@ -116,23 +114,15 @@ function showContentInPanel(contentElement) {
     }
 }
 
-if (aboutDropdown && aboutContent) {
-    aboutDropdown.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Close all dropdowns
-        if (aboutContent) aboutContent.classList.remove('show');
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-        // Show content in panel
-        showContentInPanel(aboutContent);
-    });
+// Show services by default on page load
+if (servicesContent && contentPanel) {
+    showContentInPanel(servicesContent);
 }
 
 if (servicesDropdown && servicesContent) {
     servicesDropdown.addEventListener('click', (e) => {
         e.preventDefault();
         // Close all dropdowns
-        if (aboutContent) aboutContent.classList.remove('show');
         if (servicesContent) servicesContent.classList.remove('show');
         if (contactContent) contactContent.classList.remove('show');
         // Show content in panel
@@ -144,7 +134,6 @@ if (contactDropdown && contactContent) {
     contactDropdown.addEventListener('click', (e) => {
         e.preventDefault();
         // Close all dropdowns
-        if (aboutContent) aboutContent.classList.remove('show');
         if (servicesContent) servicesContent.classList.remove('show');
         if (contactContent) contactContent.classList.remove('show');
         // Show content in panel
@@ -155,7 +144,6 @@ if (contactDropdown && contactContent) {
 // Close dropdowns when clicking outside
 document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
-        if (aboutContent) aboutContent.classList.remove('show');
         if (servicesContent) servicesContent.classList.remove('show');
         if (contactContent) contactContent.classList.remove('show');
     }
@@ -173,7 +161,6 @@ document.addEventListener('click', (e) => {
 // Close dropdowns with Escape key
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        if (aboutContent) aboutContent.classList.remove('show');
         if (servicesContent) servicesContent.classList.remove('show');
         if (contactContent) contactContent.classList.remove('show');
         const businessDropup = document.getElementById('businessDropup');
@@ -203,14 +190,12 @@ if (privacyLink && privacyDropup) {
         const isOpen = privacyDropup.classList.contains('show');
         
         // Close all other dropdowns/dropups
-        const aboutContent = document.getElementById('aboutDropdownContent');
         const servicesContent = document.getElementById('servicesDropdownContent');
         const contactContent = document.getElementById('contactDropdownContent');
         const spatialspecDropup = document.getElementById('spatialspecDropup');
         const copyrightDropup = document.getElementById('copyrightDropup');
         const termsDropupEl = document.getElementById('termsDropup');
         
-        if (aboutContent) aboutContent.classList.remove('show');
         if (servicesContent) servicesContent.classList.remove('show');
         if (contactContent) contactContent.classList.remove('show');
         if (spatialspecDropup) spatialspecDropup.classList.remove('show');
@@ -239,14 +224,12 @@ if (termsLink && termsDropup) {
         const isOpen = termsDropup.classList.contains('show');
         
         // Close all other dropdowns/dropups
-        const aboutContent = document.getElementById('aboutDropdownContent');
         const servicesContent = document.getElementById('servicesDropdownContent');
         const contactContent = document.getElementById('contactDropdownContent');
         const spatialspecDropup = document.getElementById('spatialspecDropup');
         const copyrightDropup = document.getElementById('copyrightDropup');
         const privacyDropupEl = document.getElementById('privacyDropup');
         
-        if (aboutContent) aboutContent.classList.remove('show');
         if (servicesContent) servicesContent.classList.remove('show');
         if (contactContent) contactContent.classList.remove('show');
         if (spatialspecDropup) spatialspecDropup.classList.remove('show');
@@ -343,12 +326,10 @@ if (businessLink && businessDropup) {
         const isOpen = businessDropup.classList.contains('show');
         
         // Close all other dropdowns/dropups
-        const aboutContent = document.getElementById('aboutDropdownContent');
         const servicesContent = document.getElementById('servicesDropdownContent');
         const contactContent = document.getElementById('contactDropdownContent');
         const legalDropupEl = document.getElementById('legalDropup');
         
-        if (aboutContent) aboutContent.classList.remove('show');
         if (servicesContent) servicesContent.classList.remove('show');
         if (contactContent) contactContent.classList.remove('show');
         if (legalDropupEl) legalDropupEl.classList.remove('show');
@@ -376,12 +357,10 @@ if (legalLink && legalDropup) {
         const isOpen = legalDropup.classList.contains('show');
         
         // Close all other dropdowns/dropups
-        const aboutContent = document.getElementById('aboutDropdownContent');
         const servicesContent = document.getElementById('servicesDropdownContent');
         const contactContent = document.getElementById('contactDropdownContent');
         const businessDropupEl = document.getElementById('businessDropup');
         
-        if (aboutContent) aboutContent.classList.remove('show');
         if (servicesContent) servicesContent.classList.remove('show');
         if (contactContent) contactContent.classList.remove('show');
         if (businessDropupEl) businessDropupEl.classList.remove('show');
