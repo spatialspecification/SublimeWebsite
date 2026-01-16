@@ -93,7 +93,7 @@ img {
 .header {
     background-color: rgba(15, 15, 15, 0.9);
     backdrop-filter: blur(10px);
-    padding: clamp(10px, 2vh, 20px) clamp(40px, 4vw, 80px);
+    padding: clamp(8px, 1vh, 12px) clamp(40px, 4vw, 80px);
     width: 100%;
     position: fixed;
     top: 0;
@@ -109,7 +109,7 @@ img {
     justify-content: flex-start;
     align-items: center;
     gap: 15px;
-    min-height: min(200px, 15vw);
+    min-height: 60px;
 }
 
 .header-logo {
@@ -117,12 +117,12 @@ img {
     z-index: 1001;
     display: flex;
     align-items: center;
-    height: min(200px, 15vw);
+    height: 60px;
     flex-shrink: 0;
 }
 
 .header-logo-img {
-    max-width: min(200px, 15vw);
+    max-width: 150px;
     height: auto;
     display: block;
 }
@@ -965,7 +965,7 @@ img {
     background-color: transparent;
     backdrop-filter: blur(10px);
     color: var(--color-white);
-    padding: clamp(20px, 4vh, 40px) clamp(40px, 4vw, 80px) clamp(12px, 2.5vh, 25px);
+    padding: clamp(12px, 2vh, 20px) clamp(40px, 4vw, 80px);
     margin-top: 0;
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
