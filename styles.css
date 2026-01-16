@@ -94,6 +94,7 @@ img {
     background-color: rgba(15, 15, 15, 0.9);
     backdrop-filter: blur(10px);
     padding: clamp(8px, 1vh, 12px) clamp(40px, 4vw, 80px);
+    padding-left: 0;
     width: 100%;
     position: fixed;
     top: 0;
@@ -110,17 +111,19 @@ img {
     align-items: center;
     gap: 15px;
     min-height: 60px;
-    padding-left: 0;
+    padding-left: clamp(40px, 4vw, 80px);
 }
 
 .header-logo {
-    position: relative;
+    position: absolute;
+    left: 0;
     z-index: 1001;
     display: flex;
     align-items: center;
     height: 60px;
     flex-shrink: 0;
     margin-left: 0;
+    padding-left: clamp(10px, 1.5vw, 20px);
 }
 
 .header-logo-img {
