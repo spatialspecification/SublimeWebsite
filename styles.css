@@ -41,13 +41,13 @@ body {
     background-attachment: fixed;
     position: relative;
     overflow-x: hidden;
-    padding-left: clamp(40px, 4vw, 80px);
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     width: 100%;
     zoom: clamp(0.8, 100vw / 1920, 1.2);
-    padding-bottom: 0;
     font-size: clamp(0.75rem, 1.5vw, 0.95rem);
 }
 
@@ -77,9 +77,9 @@ input, textarea, button {
 }
 
 .container {
-    max-width: min(1200px, 90vw);
-    margin: 0 auto;
-    padding: 0 clamp(10px, 2vw, 20px);
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
     width: 100%;
 }
 
@@ -92,10 +92,11 @@ img {
 /* Header */
 .header {
     background-color: transparent;
-    padding: clamp(10px, 2vh, 20px) 0;
+    padding: clamp(10px, 2vh, 20px) clamp(40px, 4vw, 80px);
     width: 100%;
     position: relative;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
 }
 
 .header-content {
@@ -784,9 +785,10 @@ img {
 /* Main Content Panel */
 .main-content-panel {
     min-height: calc(100vh - 200px);
-    padding: clamp(40px, 8vh, 80px) clamp(10px, 2vw, 20px);
-    background-color: var(--color-dark-bg);
+    padding: clamp(40px, 8vh, 80px) clamp(40px, 4vw, 80px);
+    background-color: transparent;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .content-panel {
@@ -960,10 +962,11 @@ img {
     background-color: transparent;
     backdrop-filter: blur(10px);
     color: var(--color-white);
-    padding: clamp(20px, 4vh, 40px) 0 clamp(12px, 2.5vh, 25px);
+    padding: clamp(20px, 4vh, 40px) clamp(40px, 4vw, 80px) clamp(12px, 2.5vh, 25px);
     margin-top: 0;
     width: 100%;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
 }
 
 .footer-bottom {
