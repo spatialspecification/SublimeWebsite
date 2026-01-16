@@ -97,7 +97,8 @@ document.querySelectorAll('.contact-form-container').forEach(el => {
     observer.observe(el);
 });
 
-// Dropdown functionality
+// Content Panel functionality
+const contentPanel = document.getElementById('contentPanel');
 const aboutDropdown = document.getElementById('aboutDropdown');
 const servicesDropdown = document.getElementById('servicesDropdown');
 const contactDropdown = document.getElementById('contactDropdown');
@@ -105,38 +106,49 @@ const aboutContent = document.getElementById('aboutDropdownContent');
 const servicesContent = document.getElementById('servicesDropdownContent');
 const contactContent = document.getElementById('contactDropdownContent');
 
-function toggleDropdown(button, content) {
-    const isOpen = content.classList.contains('show');
-    
-    // Close all dropdowns
-    if (aboutContent) aboutContent.classList.remove('show');
-    if (servicesContent) servicesContent.classList.remove('show');
-    if (contactContent) contactContent.classList.remove('show');
-    
-    // Toggle current dropdown
-    if (!isOpen) {
-        content.classList.add('show');
+function showContentInPanel(contentElement) {
+    if (contentPanel && contentElement) {
+        // Copy content to panel
+        contentPanel.innerHTML = contentElement.innerHTML;
+        
+        // Scroll to panel smoothly
+        contentPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
 if (aboutDropdown && aboutContent) {
     aboutDropdown.addEventListener('click', (e) => {
         e.preventDefault();
-        toggleDropdown(aboutDropdown, aboutContent);
+        // Close all dropdowns
+        if (aboutContent) aboutContent.classList.remove('show');
+        if (servicesContent) servicesContent.classList.remove('show');
+        if (contactContent) contactContent.classList.remove('show');
+        // Show content in panel
+        showContentInPanel(aboutContent);
     });
 }
 
 if (servicesDropdown && servicesContent) {
     servicesDropdown.addEventListener('click', (e) => {
         e.preventDefault();
-        toggleDropdown(servicesDropdown, servicesContent);
+        // Close all dropdowns
+        if (aboutContent) aboutContent.classList.remove('show');
+        if (servicesContent) servicesContent.classList.remove('show');
+        if (contactContent) contactContent.classList.remove('show');
+        // Show content in panel
+        showContentInPanel(servicesContent);
     });
 }
 
 if (contactDropdown && contactContent) {
     contactDropdown.addEventListener('click', (e) => {
         e.preventDefault();
-        toggleDropdown(contactDropdown, contactContent);
+        // Close all dropdowns
+        if (aboutContent) aboutContent.classList.remove('show');
+        if (servicesContent) servicesContent.classList.remove('show');
+        if (contactContent) contactContent.classList.remove('show');
+        // Show content in panel
+        showContentInPanel(contactContent);
     });
 }
 

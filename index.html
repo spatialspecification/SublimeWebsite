@@ -21,7 +21,6 @@
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" id="aboutDropdown">About</button>
                         <div class="dropdown-content" id="aboutDropdownContent">
-                            <h3>About Sublime Concreting</h3>
                             <p>With years of experience in decorative and architectural concrete, Sublime Concreting brings expertise, precision, and artistry to every project. We specialize in creating beautiful, durable concrete solutions that stand the test of time.</p>
                             <p>Our team combines traditional craftsmanship with modern techniques to deliver exceptional results for residential and commercial projects alike.</p>
                         </div>
@@ -29,7 +28,6 @@
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" id="servicesDropdown">Services</button>
                         <div class="dropdown-content" id="servicesDropdownContent">
-                            <h3>Our Services</h3>
                             <ul>
                                 <li><strong>Architectural Seats & Features</strong> - Custom-designed concrete seating and architectural features</li>
                                 <li><strong>Custom Bench Tops & Outdoor Kitchens</strong> - Premium concrete bench tops and outdoor kitchen installations</li>
@@ -41,18 +39,23 @@
                         </div>
                     </div>
                     <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" id="contactDropdown">Contact</button>
+                        <button class="btn btn-primary dropdown-toggle" id="contactDropdown">Connect</button>
                         <div class="dropdown-content" id="contactDropdownContent">
-                            <h3>Get in Touch</h3>
-                            <p>Ready to start your concrete project? Get in touch with us today.</p>
-                            <div class="dropdown-info-item">
-                                <strong>Service Areas:</strong>
-                                <p>Greater Metropolitan Area</p>
-                            </div>
-                            <div class="dropdown-info-item">
-                                <strong>Office Hours:</strong>
-                                <p>Monday - Friday: 8:00 AM - 5:00 PM<br>Saturday: By Appointment</p>
-                            </div>
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-group">
+                                    <label for="inquiry-name">Name</label>
+                                    <input type="text" id="inquiry-name" name="name" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inquiry-email">Email</label>
+                                    <input type="email" id="inquiry-email" name="email" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="inquiry-message">Message</label>
+                                    <textarea id="inquiry-message" name="message" rows="6" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary submit-btn">Send Inquiry</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -60,28 +63,33 @@
         </div>
     </header>
 
+    <!-- Main Content Panel -->
+    <main class="main-content-panel">
+        <div class="container">
+            <div class="content-panel" id="contentPanel">
+                <!-- Content will be displayed here when buttons are clicked -->
+            </div>
+        </div>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <div class="footer-left">
-                    <p class="footer-copyright">&copy; 2017 SUBLIME CONCRETE QLD. All rights reserved.</p>
-                </div>
-                <div class="footer-right">
-                    <div class="footer-links">
-                        <span class="footer-link-container">
-                            <span class="footer-link-text" id="businessLink">BUSINESS</span>
-                            <div class="dropup-content" id="businessDropup">
-                                <p><strong>Company:</strong> Sublime Concreting</p>
-                                <p><strong>Email:</strong> <a href="mailto:info@sublime.zone">info@sublime.zone</a></p>
-                                <p><strong>Location:</strong> Budrim, Queensland (AEST)</p>
-                                <p><strong>ABN:</strong> 34 923 234 862</p>
-                            </div>
-                        </span>
-                        <span class="footer-link-container">
-                            <span class="footer-link-text" id="legalLink">LEGAL</span>
-                            <div class="dropup-content" id="legalDropup">
+                <span class="footer-copyright">&copy; 2017 SUBLIME CONCRETE QLD. All rights reserved.</span>
+                <div class="footer-links">
+                    <span class="footer-link-container">
+                        <span class="footer-link-text" id="businessLink">BUSINESS</span>
+                        <div class="dropup-content" id="businessDropup">
+                            <p><strong>Company:</strong> Sublime Concreting</p>
+                            <p><strong>Email:</strong> <a href="mailto:info@sublime.zone">info@sublime.zone</a></p>
+                            <p><strong>Location:</strong> Budrim, Queensland (AEST)</p>
+                            <p><strong>ABN:</strong> 34 923 234 862</p>
+                        </div>
+                    </span>
+                    <span class="footer-link-container">
+                        <span class="footer-link-text" id="legalLink">LEGAL</span>
+                        <div class="dropup-content" id="legalDropup">
                                 <p><strong>Last Updated: January 2024</strong></p>
                                 
                                 <h3>Privacy Policy</h3>
@@ -123,10 +131,9 @@
                                 <p><strong>Contact Information:</strong> For questions regarding these Terms of Service or Privacy Policy, please contact us through our website contact form.</p>
                             </div>
                         </span>
-                        <span class="footer-link-container">
-                            <a href="https://spatialspec.net" target="_blank" class="footer-link-text" id="spatialspecLink">WEBSITE BY SPATIALSPEC</a>
-                        </span>
-                    </div>
+                    <span class="footer-link-container">
+                        <a href="https://spatialspec.net" target="_blank" class="footer-link-text" id="spatialspecLink">WEBSITE BY SPATIALSPEC</a>
+                    </span>
                 </div>
             </div>
         </div>
