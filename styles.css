@@ -84,8 +84,9 @@ img {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 20px;
-    padding-left: calc(clamp(200px, 20vw, 250px) + 10px);
+    gap: 15px;
+    padding-left: calc(clamp(10px, 2vw, 20px) + min(200px, 15vw) + 15px);
+    min-height: min(200px, 15vw);
 }
 
 .header-logo {
@@ -93,6 +94,9 @@ img {
     top: clamp(10px, 2vh, 20px);
     left: clamp(10px, 2vw, 20px);
     z-index: 1001;
+    display: flex;
+    align-items: center;
+    height: min(200px, 15vw);
 }
 
 .header-logo-img {
