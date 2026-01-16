@@ -885,6 +885,10 @@ img {
     text-align: left;
 }
 
+.footer .container {
+    padding-left: 0;
+}
+
 .footer-copyright {
     color: var(--color-grey-very-light);
     font-size: clamp(0.75rem, 1.5vw, 0.95rem);
@@ -892,6 +896,7 @@ img {
     text-align: left;
     flex-shrink: 0;
     white-space: nowrap;
+    padding-left: clamp(40px, 4vw, 80px);
 }
 
 .footer-links {
