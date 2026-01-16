@@ -48,14 +48,14 @@ body {
 /* Make all text same size, color, and uppercase */
 *, *::before, *::after {
     text-transform: uppercase;
-    color: var(--color-grey-very-light) !important;
+    color: var(--color-white) !important;
     font-size: clamp(0.75rem, 1.5vw, 0.95rem) !important;
 }
 
 /* Override for specific elements that should maintain their styling */
 input, textarea, button {
     text-transform: uppercase;
-    color: var(--color-grey-very-light) !important;
+    color: var(--color-white) !important;
     font-size: clamp(0.75rem, 1.5vw, 0.95rem) !important;
 }
 
@@ -314,6 +314,7 @@ img {
     font-family: var(--font-primary);
     margin: 0;
     text-transform: uppercase;
+    border: none;
 }
 
 .hero-container .btn {
@@ -479,7 +480,7 @@ img {
 .btn-primary {
     background-color: transparent;
     color: var(--color-white);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: none;
     box-shadow: none;
 }
 
@@ -488,18 +489,17 @@ img {
     color: var(--color-white);
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
-    border-color: var(--color-red);
 }
 
 .btn-secondary {
     background-color: transparent;
     color: var(--color-white);
-    border: 2px solid var(--color-white);
+    border: none;
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-white);
-    color: var(--color-dark-bg);
+    background-color: transparent;
+    color: var(--color-white);
 }
 
 /* Services Section */
