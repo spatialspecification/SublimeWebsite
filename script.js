@@ -1,382 +1,358 @@
-// Wait for DOM to be fully loaded
+/**
+ * Spatialspec - Main JavaScript
+ * Handles dropdown toggles, contact forms, and user interactions
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
     
-// Mobile Navigation Toggle (only if elements exist)
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-const navLinks = document.querySelectorAll('.nav-link');
+    /**
+     * Close all dropdowns and reset forms
+     */
+    function closeAllDropdowns() {
+        document.querySelectorAll('.service-dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+        document.querySelectorAll('.btn-service, .btn-legal').forEach(button => {
+            button.classList.remove('active');
+        });
+        document.querySelectorAll('.contact-form').forEach(form => {
+            form.classList.remove('active');
+        });
+    }
 
-if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-    });
+    /**
+     * Setup dropdown toggle functionality
+     * @param {string} selector - CSS selector for buttons
+     */
+    function setupDropdownToggle(selector) {
+        document.querySelectorAll(selector).forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const dropdown = this.nextElementSibling;
+                const isActive = dropdown.classList.contains('active');
+                
+                closeAllDropdowns();
+                
+                if (!isActive) {
+                    dropdown.classList.add('active');
+                    this.classList.add('active');
+                }
+            });
+        });
+    }
 
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
+    // Initialize dropdown toggles
+    setupDropdownToggle('.btn-service');
+    setupDropdownToggle('.btn-legal');
+    setupDropdownToggle('.btn-footer-link');
+
+    /**
+     * Close legal page function
+     */
+    function closeLegalPage() {
+        const legalPage = document.getElementById('legal-page');
+        const navButtons = document.querySelector('.hero-buttons');
+        const legalButton = document.querySelector('.btn-footer-text[data-legal="legal"]');
+        if (legalPage && navButtons) {
+            legalPage.classList.remove('show');
+            legalPage.style.display = 'none';
+            legalPage.style.opacity = '0';
+            navButtons.style.display = 'flex';
+            if (legalButton) {
+                legalButton.classList.remove('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    /**
+     * Close connect page function
+     */
+    function closeConnectPage() {
+        const connectPage = document.getElementById('connect-page');
+        const navButtons = document.querySelector('.hero-buttons');
+        const connectButton = document.querySelector('.btn-connect-footer-link');
+        const siteFooter = document.querySelector('.site-footer');
+        if (connectPage && navButtons) {
+            const isMobile = window.innerWidth <= 600;
+            
+            connectPage.classList.remove('show');
+            // Reset transform immediately to prevent background shift
+            connectPage.style.transform = '';
+            connectPage.style.opacity = '0';
+            
+            // Ensure footer is always visible
+            if (siteFooter) {
+                siteFooter.style.display = '';
+                siteFooter.style.visibility = 'visible';
+                siteFooter.style.position = 'fixed';
+                siteFooter.style.bottom = '0';
+            }
+            
+            // Restore body overflow and position on mobile
+            if (isMobile) {
+                const scrollY = document.body.style.top;
+                document.body.style.position = '';
+                document.body.style.width = '';
+                document.body.style.top = '';
+                document.body.style.overflow = '';
+                if (scrollY) {
+                    window.scrollTo(0, parseInt(scrollY || '0') * -1);
+                }
+            }
+            
+            // Hide after animation completes
+            setTimeout(() => {
+                connectPage.style.display = 'none';
+            }, 300);
+            navButtons.style.display = 'flex';
+            if (connectButton) {
+                connectButton.classList.remove('active');
+            }
+            // Don't scroll to top to prevent footer jump
+        }
+    }
+
+    /**
+     * Legal page toggle for footer Legal button
+     */
+    document.querySelectorAll('.btn-footer-text[data-legal="legal"]').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const legalPage = document.getElementById('legal-page');
+            const navButtons = document.querySelector('.hero-buttons');
+            if (legalPage && navButtons) {
+                // Check if legal page is already showing
+                const isLegalPageShowing = legalPage.classList.contains('show') && legalPage.style.display !== 'none';
+                
+                if (isLegalPageShowing) {
+                    // If already showing, toggle back to main body
+                    closeLegalPage();
+                    return;
+                }
+                
+                // Close connect page if open
+                closeConnectPage();
+                // Close all dropdowns
+                closeAllDropdowns();
+                // Add active class to Legal button
+                this.classList.add('active');
+                // Hide nav and show legal page
+                navButtons.style.display = 'none';
+                // Reset opacity and ensure display is set
+                legalPage.style.opacity = '0';
+                legalPage.style.display = 'flex';
+                // Force reflow to ensure animation starts from beginning
+                legalPage.offsetHeight;
+                // Remove show class if present
+                legalPage.classList.remove('show');
+                // Add show class to trigger animation
+                setTimeout(() => {
+                    legalPage.classList.add('show');
+                }, 10);
+                window.scrollTo({ top: 0, behavior: 'smooth'                 });
+            }
         });
     });
-}
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const offsetTop = target.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+    /**
+     * Connect page toggle for footer Connect button
+     */
+    document.querySelectorAll('.btn-connect-footer-link').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const connectPage = document.getElementById('connect-page');
+            const navButtons = document.querySelector('.hero-buttons');
+            if (connectPage && navButtons) {
+                // Check if connect page is already showing
+                const isConnectPageShowing = connectPage.classList.contains('show') && connectPage.style.display !== 'none';
+                
+                if (isConnectPageShowing) {
+                    // If already showing, toggle back to main body
+                    closeConnectPage();
+                    return;
+                }
+                
+                // Close legal page if open
+                closeLegalPage();
+                // Close all dropdowns
+                closeAllDropdowns();
+                // Add active class to Connect button
+                this.classList.add('active');
+                // Hide nav and show connect page
+                navButtons.style.display = 'none';
+                
+                // Check if mobile device
+                const isMobile = window.innerWidth <= 600;
+                
+                // Prevent background jump on mobile by preserving scroll position
+                const currentScrollY = window.scrollY;
+                
+                // Get Connect button position for popup animation (desktop only)
+                let startX = 0;
+                let startY = 0;
+                if (!isMobile) {
+                    const connectButtonRect = this.getBoundingClientRect();
+                    const buttonCenterX = connectButtonRect.left + (connectButtonRect.width / 2);
+                    const buttonCenterY = connectButtonRect.top + (connectButtonRect.height / 2);
+                    const viewportCenterX = window.innerWidth / 2;
+                    const viewportCenterY = window.innerHeight / 2;
+                    
+                    // Calculate transform to animate from button position to center
+                    startX = buttonCenterX - viewportCenterX;
+                    startY = buttonCenterY - viewportCenterY;
+                }
+                
+                // Reset opacity, position, and ensure display is set
+                
+                if (isMobile) {
+                    // On mobile, use fade-in only (no transform) to prevent background jump
+                    connectPage.style.opacity = '0';
+                    connectPage.style.transform = '';
+                    connectPage.style.display = 'flex';
+                    // Lock scroll position to prevent jump
+                    document.body.style.overflow = 'hidden';
+                    document.body.style.position = 'fixed';
+                    document.body.style.width = '100%';
+                    document.body.style.top = `-${currentScrollY}px`;
+                } else {
+                    // On desktop, use popup animation
+                    connectPage.style.opacity = '0';
+                    connectPage.style.transform = `translate(${startX}px, ${startY}px) scale(0.3)`;
+                    connectPage.style.display = 'flex';
+                }
+                
+                // Force reflow to ensure animation starts from beginning
+                connectPage.offsetHeight;
+                
+                // Remove show class if present
+                connectPage.classList.remove('show');
+                // Add show class to trigger animation
+                setTimeout(() => {
+                    connectPage.classList.add('show');
+                    // Only auto-focus on desktop to prevent mobile jump
+                    if (!isMobile) {
+                        const nameInput = connectPage.querySelector('input[name="name"]');
+                        if (nameInput) {
+                            setTimeout(() => {
+                                nameInput.focus();
+                            }, 100);
+                        }
+                    }
+                }, 10);
+                
+                // Don't scroll to prevent footer/background jump
+            }
+        });
+    });
+
+    /**
+     * Service dropdown styling - add class when value selected
+     */
+    document.querySelectorAll('.contact-form select[name="service"]').forEach(select => {
+        // Check initial state
+        if (select.value && select.value !== '') {
+            select.classList.add('has-value');
+        }
+        
+        // Update on change
+        select.addEventListener('change', function() {
+            if (this.value && this.value !== '') {
+                this.classList.add('has-value');
+            } else {
+                this.classList.remove('has-value');
+            }
+        });
+    });
+
+    /**
+     * Form submission handler - submits to Web3Forms
+     */
+    document.querySelectorAll('.contact-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.textContent;
+            
+            // Show "Sent!" confirmation
+            submitBtn.textContent = 'Sent!';
+            submitBtn.classList.add('sent');
+            submitBtn.disabled = true;
+            
+            // Submit form to Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Reset form
+                this.reset();
+                
+                // Reset service dropdown styling
+                const serviceSelect = this.querySelector('select[name="service"]');
+                if (serviceSelect) {
+                    serviceSelect.classList.remove('has-value');
+                }
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.classList.remove('sent');
+                    submitBtn.disabled = false;
+                }, 2000);
+            })
+            .catch(error => {
+                // Reset button even on error
+                submitBtn.textContent = originalText;
+                submitBtn.classList.remove('sent');
+                submitBtn.disabled = false;
             });
+        });
+    });
+
+    /**
+     * Close dropdowns when clicking outside
+     */
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.service-item')) {
+            closeAllDropdowns();
         }
     });
-});
 
-// Navbar background on scroll (only if navbar exists)
-let lastScroll = 0;
-const navbar = document.querySelector('.navbar');
-
-if (navbar) {
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 50) {
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-        } else {
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        }
-        
-        lastScroll = currentScroll;
-    });
-}
-
-// Contact Form Handler (only if form exists)
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // Here you would normally send the data to a server
-        // For now, we'll just show an alert
-        alert('Thank you for your message! We will get back to you soon.');
-        
-        // Reset form
-        contactForm.reset();
-    });
-}
-
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+    /**
+     * Keyboard accessibility - close on Escape
+     */
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeAllDropdowns();
         }
     });
-}, observerOptions);
 
-// Observe elements for fade-in animations
-document.querySelectorAll('.contact-form-container').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-});
-
-// Content Panel functionality
-const contentPanel = document.getElementById('contentPanel');
-const servicesDropdown = document.getElementById('servicesDropdown');
-const contactDropdown = document.getElementById('contactDropdown');
-const servicesContent = document.getElementById('servicesDropdownContent');
-const contactContent = document.getElementById('contactDropdownContent');
-
-function showContentInPanel(contentElement) {
-    if (contentPanel && contentElement) {
-        // Copy content to panel
-        contentPanel.innerHTML = contentElement.innerHTML;
-        
-        // Scroll to panel smoothly
-        contentPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-}
-
-// Show services by default on page load
-if (servicesContent && contentPanel) {
-    showContentInPanel(servicesContent);
-}
-
-if (servicesDropdown && servicesContent) {
-    servicesDropdown.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Close all dropdowns
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-        // Show content in panel
-        showContentInPanel(servicesContent);
-    });
-}
-
-if (contactDropdown && contactContent) {
-    contactDropdown.addEventListener('click', (e) => {
-        e.preventDefault();
-        // Close all dropdowns
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-        // Show content in panel
-        showContentInPanel(contactContent);
-    });
-}
-
-// Close dropdowns when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-    }
-    // Close business and legal dropups when clicking outside
-    const businessDropup = document.getElementById('businessDropup');
-    const legalDropup = document.getElementById('legalDropup');
-    if (businessDropup && !e.target.closest('.footer-link-container') && !e.target.closest('.dropup-content')) {
-        businessDropup.classList.remove('show');
-    }
-    if (legalDropup && !e.target.closest('.footer-link-container') && !e.target.closest('.dropup-content')) {
-        legalDropup.classList.remove('show');
-    }
-});
-
-// Close dropdowns with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-        const businessDropup = document.getElementById('businessDropup');
-        const legalDropup = document.getElementById('legalDropup');
-        if (businessDropup) businessDropup.classList.remove('show');
-        if (legalDropup) legalDropup.classList.remove('show');
-    }
-});
-
-// Business and Legal Links Dropup functionality
-const businessLink = document.getElementById('businessLink');
-const businessDropup = document.getElementById('businessDropup');
-const legalLink = document.getElementById('legalLink');
-const legalDropup = document.getElementById('legalDropup');
-const privacyLink = document.getElementById('privacyLink');
-const termsLink = document.getElementById('termsLink');
-const privacyDropup = document.getElementById('privacyDropup');
-const termsDropup = document.getElementById('termsDropup');
-const privacyModalLink = document.getElementById('privacyModalLink');
-const termsModalLink = document.getElementById('termsModalLink');
-
-if (privacyLink && privacyDropup) {
-    privacyLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const isOpen = privacyDropup.classList.contains('show');
-        
-        // Close all other dropdowns/dropups
-        const servicesContent = document.getElementById('servicesDropdownContent');
-        const contactContent = document.getElementById('contactDropdownContent');
-        const spatialspecDropup = document.getElementById('spatialspecDropup');
-        const copyrightDropup = document.getElementById('copyrightDropup');
-        const termsDropupEl = document.getElementById('termsDropup');
-        
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-        if (spatialspecDropup) spatialspecDropup.classList.remove('show');
-        if (copyrightDropup) copyrightDropup.classList.remove('show');
-        if (termsDropupEl) termsDropupEl.classList.remove('show');
-        
-        // Toggle privacy dropup
-        if (!isOpen) {
-            privacyDropup.classList.add('show');
-        } else {
-            privacyDropup.classList.remove('show');
-        }
-    });
+    /**
+     * Sync Connect button position with footer
+     */
+    const siteFooter = document.querySelector('.site-footer');
+    const connectButton = document.querySelector('.btn-connect-float');
     
-    // Prevent dropup from closing when clicking inside it
-    privacyDropup.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-}
-
-if (termsLink && termsDropup) {
-    termsLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const isOpen = termsDropup.classList.contains('show');
-        
-        // Close all other dropdowns/dropups
-        const servicesContent = document.getElementById('servicesDropdownContent');
-        const contactContent = document.getElementById('contactDropdownContent');
-        const spatialspecDropup = document.getElementById('spatialspecDropup');
-        const copyrightDropup = document.getElementById('copyrightDropup');
-        const privacyDropupEl = document.getElementById('privacyDropup');
-        
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-        if (spatialspecDropup) spatialspecDropup.classList.remove('show');
-        if (copyrightDropup) copyrightDropup.classList.remove('show');
-        if (privacyDropupEl) privacyDropupEl.classList.remove('show');
-        
-        // Toggle terms dropup
-        if (!isOpen) {
-            termsDropup.classList.add('show');
-        } else {
-            termsDropup.classList.remove('show');
+    function updateConnectButtonPosition() {
+        if (connectButton && siteFooter) {
+            const footerRect = siteFooter.getBoundingClientRect();
+            // Position button so its bottom aligns with footer's top
+            const footerTop = window.innerHeight - footerRect.top;
+            connectButton.style.bottom = footerTop + 'px';
         }
-    });
-    
-    // Prevent dropup from closing when clicking inside it
-    termsDropup.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-}
-
-// Modal functionality
-const privacyModal = document.getElementById('privacyModal');
-const termsModal = document.getElementById('termsModal');
-const privacyClose = document.getElementById('privacyClose');
-const termsClose = document.getElementById('termsClose');
-
-// Open Privacy Policy Modal from dropup link
-if (privacyModalLink && privacyModal) {
-    privacyModalLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (privacyDropup) privacyDropup.classList.remove('show');
-        privacyModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-}
-
-// Open Terms of Service Modal from dropup link
-if (termsModalLink && termsModal) {
-    termsModalLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (termsDropup) termsDropup.classList.remove('show');
-        termsModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-}
-
-// Close Privacy Policy Modal
-if (privacyClose && privacyModal) {
-    privacyClose.addEventListener('click', () => {
-        privacyModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-}
-
-// Close Terms Modal
-if (termsClose && termsModal) {
-    termsClose.addEventListener('click', () => {
-        termsModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-}
-
-// Close modals when clicking outside
-if (privacyModal || termsModal) {
-    window.addEventListener('click', (e) => {
-        if (privacyModal && e.target === privacyModal) {
-            privacyModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        if (termsModal && e.target === termsModal) {
-            termsModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-}
-
-// Close modals with Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        if (privacyModal) privacyModal.style.display = 'none';
-        if (termsModal) termsModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
     }
+    
+    // Initial position update
+    setTimeout(updateConnectButtonPosition, 100);
+    
+    // Update on window resize (throttled)
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateConnectButtonPosition, 150);
+    });
 });
-
-// Business Dropup functionality
-if (businessLink && businessDropup) {
-    businessLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const isOpen = businessDropup.classList.contains('show');
-        
-        // Close all other dropdowns/dropups
-        const servicesContent = document.getElementById('servicesDropdownContent');
-        const contactContent = document.getElementById('contactDropdownContent');
-        const legalDropupEl = document.getElementById('legalDropup');
-        
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-        if (legalDropupEl) legalDropupEl.classList.remove('show');
-        
-        // Toggle business dropup
-        if (!isOpen) {
-            businessDropup.classList.add('show');
-        } else {
-            businessDropup.classList.remove('show');
-        }
-    });
-    
-    // Prevent dropup from closing when clicking inside it
-    businessDropup.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-}
-
-// Legal Dropup functionality
-if (legalLink && legalDropup) {
-    legalLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const isOpen = legalDropup.classList.contains('show');
-        
-        // Close all other dropdowns/dropups
-        const servicesContent = document.getElementById('servicesDropdownContent');
-        const contactContent = document.getElementById('contactDropdownContent');
-        const businessDropupEl = document.getElementById('businessDropup');
-        
-        if (servicesContent) servicesContent.classList.remove('show');
-        if (contactContent) contactContent.classList.remove('show');
-        if (businessDropupEl) businessDropupEl.classList.remove('show');
-        
-        // Toggle legal dropup
-        if (!isOpen) {
-            legalDropup.classList.add('show');
-        } else {
-            legalDropup.classList.remove('show');
-        }
-    });
-    
-    // Prevent dropup from closing when clicking inside it
-    legalDropup.addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-}
-
-}); // End DOMContentLoaded
