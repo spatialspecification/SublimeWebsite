@@ -45,6 +45,45 @@ body {
     margin: 0;
 }
 
+/* Apply 5px black border around all text with smooth edges */
+* {
+    text-shadow: 
+        /* Outer ring (5px) - complete coverage for smooth edges */
+        -6px -6px 0 var(--bg-primary), -6px -5.5px 0 var(--bg-primary), -6px -5px 0 var(--bg-primary), -6px -4.5px 0 var(--bg-primary), -6px -4px 0 var(--bg-primary), -6px -3.5px 0 var(--bg-primary), -6px -3px 0 var(--bg-primary), -6px -2.5px 0 var(--bg-primary), -6px -2px 0 var(--bg-primary), -6px -1.5px 0 var(--bg-primary), -6px -1px 0 var(--bg-primary), -6px -0.5px 0 var(--bg-primary), -6px 0 0 var(--bg-primary), -6px 0.5px 0 var(--bg-primary), -6px 1px 0 var(--bg-primary), -6px 1.5px 0 var(--bg-primary), -6px 2px 0 var(--bg-primary), -6px 2.5px 0 var(--bg-primary), -6px 3px 0 var(--bg-primary), -6px 3.5px 0 var(--bg-primary), -6px 4px 0 var(--bg-primary), -6px 4.5px 0 var(--bg-primary), -6px 5px 0 var(--bg-primary), -6px 5.5px 0 var(--bg-primary), -6px 6px 0 var(--bg-primary),
+        6px -6px 0 var(--bg-primary), 6px -5.5px 0 var(--bg-primary), 6px -5px 0 var(--bg-primary), 6px -4.5px 0 var(--bg-primary), 6px -4px 0 var(--bg-primary), 6px -3.5px 0 var(--bg-primary), 6px -3px 0 var(--bg-primary), 6px -2.5px 0 var(--bg-primary), 6px -2px 0 var(--bg-primary), 6px -1.5px 0 var(--bg-primary), 6px -1px 0 var(--bg-primary), 6px -0.5px 0 var(--bg-primary), 6px 0 0 var(--bg-primary), 6px 0.5px 0 var(--bg-primary), 6px 1px 0 var(--bg-primary), 6px 1.5px 0 var(--bg-primary), 6px 2px 0 var(--bg-primary), 6px 2.5px 0 var(--bg-primary), 6px 3px 0 var(--bg-primary), 6px 3.5px 0 var(--bg-primary), 6px 4px 0 var(--bg-primary), 6px 4.5px 0 var(--bg-primary), 6px 5px 0 var(--bg-primary), 6px 5.5px 0 var(--bg-primary), 6px 6px 0 var(--bg-primary),
+        -5.5px -6px 0 var(--bg-primary), -5.5px -5.5px 0 var(--bg-primary), -5.5px -5px 0 var(--bg-primary), -5.5px -4.5px 0 var(--bg-primary), -5.5px -4px 0 var(--bg-primary), -5.5px -3.5px 0 var(--bg-primary), -5.5px -3px 0 var(--bg-primary), -5.5px -2.5px 0 var(--bg-primary), -5.5px -2px 0 var(--bg-primary), -5.5px -1.5px 0 var(--bg-primary), -5.5px -1px 0 var(--bg-primary), -5.5px -0.5px 0 var(--bg-primary), -5.5px 0 0 var(--bg-primary), -5.5px 0.5px 0 var(--bg-primary), -5.5px 1px 0 var(--bg-primary), -5.5px 1.5px 0 var(--bg-primary), -5.5px 2px 0 var(--bg-primary), -5.5px 2.5px 0 var(--bg-primary), -5.5px 3px 0 var(--bg-primary), -5.5px 3.5px 0 var(--bg-primary), -5.5px 4px 0 var(--bg-primary), -5.5px 4.5px 0 var(--bg-primary), -5.5px 5px 0 var(--bg-primary), -5.5px 5.5px 0 var(--bg-primary), -5.5px 6px 0 var(--bg-primary),
+        5.5px -6px 0 var(--bg-primary), 5.5px -5.5px 0 var(--bg-primary), 5.5px -5px 0 var(--bg-primary), 5.5px -4.5px 0 var(--bg-primary), 5.5px -4px 0 var(--bg-primary), 5.5px -3.5px 0 var(--bg-primary), 5.5px -3px 0 var(--bg-primary), 5.5px -2.5px 0 var(--bg-primary), 5.5px -2px 0 var(--bg-primary), 5.5px -1.5px 0 var(--bg-primary), 5.5px -1px 0 var(--bg-primary), 5.5px -0.5px 0 var(--bg-primary), 5.5px 0 0 var(--bg-primary), 5.5px 0.5px 0 var(--bg-primary), 5.5px 1px 0 var(--bg-primary), 5.5px 1.5px 0 var(--bg-primary), 5.5px 2px 0 var(--bg-primary), 5.5px 2.5px 0 var(--bg-primary), 5.5px 3px 0 var(--bg-primary), 5.5px 3.5px 0 var(--bg-primary), 5.5px 4px 0 var(--bg-primary), 5.5px 4.5px 0 var(--bg-primary), 5.5px 5px 0 var(--bg-primary), 5.5px 5.5px 0 var(--bg-primary), 5.5px 6px 0 var(--bg-primary),
+        /* Continue with all positions from -5px to -1px and 1px to 5px in 0.5px increments for smooth edges */
+        -5px -6px 0 var(--bg-primary), -5px -5.5px 0 var(--bg-primary), -5px -5px 0 var(--bg-primary), -5px -4.5px 0 var(--bg-primary), -5px -4px 0 var(--bg-primary), -5px -3.5px 0 var(--bg-primary), -5px -3px 0 var(--bg-primary), -5px -2.5px 0 var(--bg-primary), -5px -2px 0 var(--bg-primary), -5px -1.5px 0 var(--bg-primary), -5px -1px 0 var(--bg-primary), -5px -0.5px 0 var(--bg-primary), -5px 0 0 var(--bg-primary), -5px 0.5px 0 var(--bg-primary), -5px 1px 0 var(--bg-primary), -5px 1.5px 0 var(--bg-primary), -5px 2px 0 var(--bg-primary), -5px 2.5px 0 var(--bg-primary), -5px 3px 0 var(--bg-primary), -5px 3.5px 0 var(--bg-primary), -5px 4px 0 var(--bg-primary), -5px 4.5px 0 var(--bg-primary), -5px 5px 0 var(--bg-primary), -5px 5.5px 0 var(--bg-primary), -5px 6px 0 var(--bg-primary),
+        5px -6px 0 var(--bg-primary), 5px -5.5px 0 var(--bg-primary), 5px -5px 0 var(--bg-primary), 5px -4.5px 0 var(--bg-primary), 5px -4px 0 var(--bg-primary), 5px -3.5px 0 var(--bg-primary), 5px -3px 0 var(--bg-primary), 5px -2.5px 0 var(--bg-primary), 5px -2px 0 var(--bg-primary), 5px -1.5px 0 var(--bg-primary), 5px -1px 0 var(--bg-primary), 5px -0.5px 0 var(--bg-primary), 5px 0 0 var(--bg-primary), 5px 0.5px 0 var(--bg-primary), 5px 1px 0 var(--bg-primary), 5px 1.5px 0 var(--bg-primary), 5px 2px 0 var(--bg-primary), 5px 2.5px 0 var(--bg-primary), 5px 3px 0 var(--bg-primary), 5px 3.5px 0 var(--bg-primary), 5px 4px 0 var(--bg-primary), 5px 4.5px 0 var(--bg-primary), 5px 5px 0 var(--bg-primary), 5px 5.5px 0 var(--bg-primary), 5px 6px 0 var(--bg-primary),
+        /* Add remaining layers with half-pixel increments for smoothness */
+        -4.5px -6px 0 var(--bg-primary), -4.5px -5.5px 0 var(--bg-primary), -4.5px -5px 0 var(--bg-primary), -4.5px -4.5px 0 var(--bg-primary), -4.5px -4px 0 var(--bg-primary), -4.5px -3.5px 0 var(--bg-primary), -4.5px -3px 0 var(--bg-primary), -4.5px -2.5px 0 var(--bg-primary), -4.5px -2px 0 var(--bg-primary), -4.5px -1.5px 0 var(--bg-primary), -4.5px -1px 0 var(--bg-primary), -4.5px -0.5px 0 var(--bg-primary), -4.5px 0 0 var(--bg-primary), -4.5px 0.5px 0 var(--bg-primary), -4.5px 1px 0 var(--bg-primary), -4.5px 1.5px 0 var(--bg-primary), -4.5px 2px 0 var(--bg-primary), -4.5px 2.5px 0 var(--bg-primary), -4.5px 3px 0 var(--bg-primary), -4.5px 3.5px 0 var(--bg-primary), -4.5px 4px 0 var(--bg-primary), -4.5px 4.5px 0 var(--bg-primary), -4.5px 5px 0 var(--bg-primary), -4.5px 5.5px 0 var(--bg-primary), -4.5px 6px 0 var(--bg-primary),
+        4.5px -6px 0 var(--bg-primary), 4.5px -5.5px 0 var(--bg-primary), 4.5px -5px 0 var(--bg-primary), 4.5px -4.5px 0 var(--bg-primary), 4.5px -4px 0 var(--bg-primary), 4.5px -3.5px 0 var(--bg-primary), 4.5px -3px 0 var(--bg-primary), 4.5px -2.5px 0 var(--bg-primary), 4.5px -2px 0 var(--bg-primary), 4.5px -1.5px 0 var(--bg-primary), 4.5px -1px 0 var(--bg-primary), 4.5px -0.5px 0 var(--bg-primary), 4.5px 0 0 var(--bg-primary), 4.5px 0.5px 0 var(--bg-primary), 4.5px 1px 0 var(--bg-primary), 4.5px 1.5px 0 var(--bg-primary), 4.5px 2px 0 var(--bg-primary), 4.5px 2.5px 0 var(--bg-primary), 4.5px 3px 0 var(--bg-primary), 4.5px 3.5px 0 var(--bg-primary), 4.5px 4px 0 var(--bg-primary), 4.5px 4.5px 0 var(--bg-primary), 4.5px 5px 0 var(--bg-primary), 4.5px 5.5px 0 var(--bg-primary), 4.5px 6px 0 var(--bg-primary),
+        -4px -6px 0 var(--bg-primary), -4px -5.5px 0 var(--bg-primary), -4px -5px 0 var(--bg-primary), -4px -4.5px 0 var(--bg-primary), -4px -4px 0 var(--bg-primary), -4px -3.5px 0 var(--bg-primary), -4px -3px 0 var(--bg-primary), -4px -2.5px 0 var(--bg-primary), -4px -2px 0 var(--bg-primary), -4px -1.5px 0 var(--bg-primary), -4px -1px 0 var(--bg-primary), -4px -0.5px 0 var(--bg-primary), -4px 0 0 var(--bg-primary), -4px 0.5px 0 var(--bg-primary), -4px 1px 0 var(--bg-primary), -4px 1.5px 0 var(--bg-primary), -4px 2px 0 var(--bg-primary), -4px 2.5px 0 var(--bg-primary), -4px 3px 0 var(--bg-primary), -4px 3.5px 0 var(--bg-primary), -4px 4px 0 var(--bg-primary), -4px 4.5px 0 var(--bg-primary), -4px 5px 0 var(--bg-primary), -4px 5.5px 0 var(--bg-primary), -4px 6px 0 var(--bg-primary),
+        4px -6px 0 var(--bg-primary), 4px -5.5px 0 var(--bg-primary), 4px -5px 0 var(--bg-primary), 4px -4.5px 0 var(--bg-primary), 4px -4px 0 var(--bg-primary), 4px -3.5px 0 var(--bg-primary), 4px -3px 0 var(--bg-primary), 4px -2.5px 0 var(--bg-primary), 4px -2px 0 var(--bg-primary), 4px -1.5px 0 var(--bg-primary), 4px -1px 0 var(--bg-primary), 4px -0.5px 0 var(--bg-primary), 4px 0 0 var(--bg-primary), 4px 0.5px 0 var(--bg-primary), 4px 1px 0 var(--bg-primary), 4px 1.5px 0 var(--bg-primary), 4px 2px 0 var(--bg-primary), 4px 2.5px 0 var(--bg-primary), 4px 3px 0 var(--bg-primary), 4px 3.5px 0 var(--bg-primary), 4px 4px 0 var(--bg-primary), 4px 4.5px 0 var(--bg-primary), 4px 5px 0 var(--bg-primary), 4px 5.5px 0 var(--bg-primary), 4px 6px 0 var(--bg-primary),
+        /* Continue pattern for -3.5px to 3.5px */
+        -3.5px -6px 0 var(--bg-primary), -3.5px -5.5px 0 var(--bg-primary), -3.5px -5px 0 var(--bg-primary), -3.5px -4.5px 0 var(--bg-primary), -3.5px -4px 0 var(--bg-primary), -3.5px -3.5px 0 var(--bg-primary), -3.5px -3px 0 var(--bg-primary), -3.5px -2.5px 0 var(--bg-primary), -3.5px -2px 0 var(--bg-primary), -3.5px -1.5px 0 var(--bg-primary), -3.5px -1px 0 var(--bg-primary), -3.5px -0.5px 0 var(--bg-primary), -3.5px 0 0 var(--bg-primary), -3.5px 0.5px 0 var(--bg-primary), -3.5px 1px 0 var(--bg-primary), -3.5px 1.5px 0 var(--bg-primary), -3.5px 2px 0 var(--bg-primary), -3.5px 2.5px 0 var(--bg-primary), -3.5px 3px 0 var(--bg-primary), -3.5px 3.5px 0 var(--bg-primary), -3.5px 4px 0 var(--bg-primary), -3.5px 4.5px 0 var(--bg-primary), -3.5px 5px 0 var(--bg-primary), -3.5px 5.5px 0 var(--bg-primary), -3.5px 6px 0 var(--bg-primary),
+        3.5px -6px 0 var(--bg-primary), 3.5px -5.5px 0 var(--bg-primary), 3.5px -5px 0 var(--bg-primary), 3.5px -4.5px 0 var(--bg-primary), 3.5px -4px 0 var(--bg-primary), 3.5px -3.5px 0 var(--bg-primary), 3.5px -3px 0 var(--bg-primary), 3.5px -2.5px 0 var(--bg-primary), 3.5px -2px 0 var(--bg-primary), 3.5px -1.5px 0 var(--bg-primary), 3.5px -1px 0 var(--bg-primary), 3.5px -0.5px 0 var(--bg-primary), 3.5px 0 0 var(--bg-primary), 3.5px 0.5px 0 var(--bg-primary), 3.5px 1px 0 var(--bg-primary), 3.5px 1.5px 0 var(--bg-primary), 3.5px 2px 0 var(--bg-primary), 3.5px 2.5px 0 var(--bg-primary), 3.5px 3px 0 var(--bg-primary), 3.5px 3.5px 0 var(--bg-primary), 3.5px 4px 0 var(--bg-primary), 3.5px 4.5px 0 var(--bg-primary), 3.5px 5px 0 var(--bg-primary), 3.5px 5.5px 0 var(--bg-primary), 3.5px 6px 0 var(--bg-primary),
+        -3px -6px 0 var(--bg-primary), -3px -5.5px 0 var(--bg-primary), -3px -5px 0 var(--bg-primary), -3px -4.5px 0 var(--bg-primary), -3px -4px 0 var(--bg-primary), -3px -3.5px 0 var(--bg-primary), -3px -3px 0 var(--bg-primary), -3px -2.5px 0 var(--bg-primary), -3px -2px 0 var(--bg-primary), -3px -1.5px 0 var(--bg-primary), -3px -1px 0 var(--bg-primary), -3px -0.5px 0 var(--bg-primary), -3px 0 0 var(--bg-primary), -3px 0.5px 0 var(--bg-primary), -3px 1px 0 var(--bg-primary), -3px 1.5px 0 var(--bg-primary), -3px 2px 0 var(--bg-primary), -3px 2.5px 0 var(--bg-primary), -3px 3px 0 var(--bg-primary), -3px 3.5px 0 var(--bg-primary), -3px 4px 0 var(--bg-primary), -3px 4.5px 0 var(--bg-primary), -3px 5px 0 var(--bg-primary), -3px 5.5px 0 var(--bg-primary), -3px 6px 0 var(--bg-primary),
+        3px -6px 0 var(--bg-primary), 3px -5.5px 0 var(--bg-primary), 3px -5px 0 var(--bg-primary), 3px -4.5px 0 var(--bg-primary), 3px -4px 0 var(--bg-primary), 3px -3.5px 0 var(--bg-primary), 3px -3px 0 var(--bg-primary), 3px -2.5px 0 var(--bg-primary), 3px -2px 0 var(--bg-primary), 3px -1.5px 0 var(--bg-primary), 3px -1px 0 var(--bg-primary), 3px -0.5px 0 var(--bg-primary), 3px 0 0 var(--bg-primary), 3px 0.5px 0 var(--bg-primary), 3px 1px 0 var(--bg-primary), 3px 1.5px 0 var(--bg-primary), 3px 2px 0 var(--bg-primary), 3px 2.5px 0 var(--bg-primary), 3px 3px 0 var(--bg-primary), 3px 3.5px 0 var(--bg-primary), 3px 4px 0 var(--bg-primary), 3px 4.5px 0 var(--bg-primary), 3px 5px 0 var(--bg-primary), 3px 5.5px 0 var(--bg-primary), 3px 6px 0 var(--bg-primary),
+        /* Add remaining positions for complete coverage (2.5px to -2.5px) */
+        -2.5px -6px 0 var(--bg-primary), -2.5px -5.5px 0 var(--bg-primary), -2.5px -5px 0 var(--bg-primary), -2.5px -4.5px 0 var(--bg-primary), -2.5px -4px 0 var(--bg-primary), -2.5px -3.5px 0 var(--bg-primary), -2.5px -3px 0 var(--bg-primary), -2.5px -2.5px 0 var(--bg-primary), -2.5px -2px 0 var(--bg-primary), -2.5px -1.5px 0 var(--bg-primary), -2.5px -1px 0 var(--bg-primary), -2.5px -0.5px 0 var(--bg-primary), -2.5px 0 0 var(--bg-primary), -2.5px 0.5px 0 var(--bg-primary), -2.5px 1px 0 var(--bg-primary), -2.5px 1.5px 0 var(--bg-primary), -2.5px 2px 0 var(--bg-primary), -2.5px 2.5px 0 var(--bg-primary), -2.5px 3px 0 var(--bg-primary), -2.5px 3.5px 0 var(--bg-primary), -2.5px 4px 0 var(--bg-primary), -2.5px 4.5px 0 var(--bg-primary), -2.5px 5px 0 var(--bg-primary), -2.5px 5.5px 0 var(--bg-primary), -2.5px 6px 0 var(--bg-primary),
+        2.5px -6px 0 var(--bg-primary), 2.5px -5.5px 0 var(--bg-primary), 2.5px -5px 0 var(--bg-primary), 2.5px -4.5px 0 var(--bg-primary), 2.5px -4px 0 var(--bg-primary), 2.5px -3.5px 0 var(--bg-primary), 2.5px -3px 0 var(--bg-primary), 2.5px -2.5px 0 var(--bg-primary), 2.5px -2px 0 var(--bg-primary), 2.5px -1.5px 0 var(--bg-primary), 2.5px -1px 0 var(--bg-primary), 2.5px -0.5px 0 var(--bg-primary), 2.5px 0 0 var(--bg-primary), 2.5px 0.5px 0 var(--bg-primary), 2.5px 1px 0 var(--bg-primary), 2.5px 1.5px 0 var(--bg-primary), 2.5px 2px 0 var(--bg-primary), 2.5px 2.5px 0 var(--bg-primary), 2.5px 3px 0 var(--bg-primary), 2.5px 3.5px 0 var(--bg-primary), 2.5px 4px 0 var(--bg-primary), 2.5px 4.5px 0 var(--bg-primary), 2.5px 5px 0 var(--bg-primary), 2.5px 5.5px 0 var(--bg-primary), 2.5px 6px 0 var(--bg-primary),
+        -2px -6px 0 var(--bg-primary), -2px -5.5px 0 var(--bg-primary), -2px -5px 0 var(--bg-primary), -2px -4.5px 0 var(--bg-primary), -2px -4px 0 var(--bg-primary), -2px -3.5px 0 var(--bg-primary), -2px -3px 0 var(--bg-primary), -2px -2.5px 0 var(--bg-primary), -2px -2px 0 var(--bg-primary), -2px -1.5px 0 var(--bg-primary), -2px -1px 0 var(--bg-primary), -2px -0.5px 0 var(--bg-primary), -2px 0 0 var(--bg-primary), -2px 0.5px 0 var(--bg-primary), -2px 1px 0 var(--bg-primary), -2px 1.5px 0 var(--bg-primary), -2px 2px 0 var(--bg-primary), -2px 2.5px 0 var(--bg-primary), -2px 3px 0 var(--bg-primary), -2px 3.5px 0 var(--bg-primary), -2px 4px 0 var(--bg-primary), -2px 4.5px 0 var(--bg-primary), -2px 5px 0 var(--bg-primary), -2px 5.5px 0 var(--bg-primary), -2px 6px 0 var(--bg-primary),
+        2px -6px 0 var(--bg-primary), 2px -5.5px 0 var(--bg-primary), 2px -5px 0 var(--bg-primary), 2px -4.5px 0 var(--bg-primary), 2px -4px 0 var(--bg-primary), 2px -3.5px 0 var(--bg-primary), 2px -3px 0 var(--bg-primary), 2px -2.5px 0 var(--bg-primary), 2px -2px 0 var(--bg-primary), 2px -1.5px 0 var(--bg-primary), 2px -1px 0 var(--bg-primary), 2px -0.5px 0 var(--bg-primary), 2px 0 0 var(--bg-primary), 2px 0.5px 0 var(--bg-primary), 2px 1px 0 var(--bg-primary), 2px 1.5px 0 var(--bg-primary), 2px 2px 0 var(--bg-primary), 2px 2.5px 0 var(--bg-primary), 2px 3px 0 var(--bg-primary), 2px 3.5px 0 var(--bg-primary), 2px 4px 0 var(--bg-primary), 2px 4.5px 0 var(--bg-primary), 2px 5px 0 var(--bg-primary), 2px 5.5px 0 var(--bg-primary), 2px 6px 0 var(--bg-primary),
+        -1.5px -6px 0 var(--bg-primary), -1.5px -5.5px 0 var(--bg-primary), -1.5px -5px 0 var(--bg-primary), -1.5px -4.5px 0 var(--bg-primary), -1.5px -4px 0 var(--bg-primary), -1.5px -3.5px 0 var(--bg-primary), -1.5px -3px 0 var(--bg-primary), -1.5px -2.5px 0 var(--bg-primary), -1.5px -2px 0 var(--bg-primary), -1.5px -1.5px 0 var(--bg-primary), -1.5px -1px 0 var(--bg-primary), -1.5px -0.5px 0 var(--bg-primary), -1.5px 0 0 var(--bg-primary), -1.5px 0.5px 0 var(--bg-primary), -1.5px 1px 0 var(--bg-primary), -1.5px 1.5px 0 var(--bg-primary), -1.5px 2px 0 var(--bg-primary), -1.5px 2.5px 0 var(--bg-primary), -1.5px 3px 0 var(--bg-primary), -1.5px 3.5px 0 var(--bg-primary), -1.5px 4px 0 var(--bg-primary), -1.5px 4.5px 0 var(--bg-primary), -1.5px 5px 0 var(--bg-primary), -1.5px 5.5px 0 var(--bg-primary), -1.5px 6px 0 var(--bg-primary),
+        1.5px -6px 0 var(--bg-primary), 1.5px -5.5px 0 var(--bg-primary), 1.5px -5px 0 var(--bg-primary), 1.5px -4.5px 0 var(--bg-primary), 1.5px -4px 0 var(--bg-primary), 1.5px -3.5px 0 var(--bg-primary), 1.5px -3px 0 var(--bg-primary), 1.5px -2.5px 0 var(--bg-primary), 1.5px -2px 0 var(--bg-primary), 1.5px -1.5px 0 var(--bg-primary), 1.5px -1px 0 var(--bg-primary), 1.5px -0.5px 0 var(--bg-primary), 1.5px 0 0 var(--bg-primary), 1.5px 0.5px 0 var(--bg-primary), 1.5px 1px 0 var(--bg-primary), 1.5px 1.5px 0 var(--bg-primary), 1.5px 2px 0 var(--bg-primary), 1.5px 2.5px 0 var(--bg-primary), 1.5px 3px 0 var(--bg-primary), 1.5px 3.5px 0 var(--bg-primary), 1.5px 4px 0 var(--bg-primary), 1.5px 4.5px 0 var(--bg-primary), 1.5px 5px 0 var(--bg-primary), 1.5px 5.5px 0 var(--bg-primary), 1.5px 6px 0 var(--bg-primary),
+        -1px -6px 0 var(--bg-primary), -1px -5.5px 0 var(--bg-primary), -1px -5px 0 var(--bg-primary), -1px -4.5px 0 var(--bg-primary), -1px -4px 0 var(--bg-primary), -1px -3.5px 0 var(--bg-primary), -1px -3px 0 var(--bg-primary), -1px -2.5px 0 var(--bg-primary), -1px -2px 0 var(--bg-primary), -1px -1.5px 0 var(--bg-primary), -1px -1px 0 var(--bg-primary), -1px -0.5px 0 var(--bg-primary), -1px 0 0 var(--bg-primary), -1px 0.5px 0 var(--bg-primary), -1px 1px 0 var(--bg-primary), -1px 1.5px 0 var(--bg-primary), -1px 2px 0 var(--bg-primary), -1px 2.5px 0 var(--bg-primary), -1px 3px 0 var(--bg-primary), -1px 3.5px 0 var(--bg-primary), -1px 4px 0 var(--bg-primary), -1px 4.5px 0 var(--bg-primary), -1px 5px 0 var(--bg-primary), -1px 5.5px 0 var(--bg-primary), -1px 6px 0 var(--bg-primary),
+        1px -6px 0 var(--bg-primary), 1px -5.5px 0 var(--bg-primary), 1px -5px 0 var(--bg-primary), 1px -4.5px 0 var(--bg-primary), 1px -4px 0 var(--bg-primary), 1px -3.5px 0 var(--bg-primary), 1px -3px 0 var(--bg-primary), 1px -2.5px 0 var(--bg-primary), 1px -2px 0 var(--bg-primary), 1px -1.5px 0 var(--bg-primary), 1px -1px 0 var(--bg-primary), 1px -0.5px 0 var(--bg-primary), 1px 0 0 var(--bg-primary), 1px 0.5px 0 var(--bg-primary), 1px 1px 0 var(--bg-primary), 1px 1.5px 0 var(--bg-primary), 1px 2px 0 var(--bg-primary), 1px 2.5px 0 var(--bg-primary), 1px 3px 0 var(--bg-primary), 1px 3.5px 0 var(--bg-primary), 1px 4px 0 var(--bg-primary), 1px 4.5px 0 var(--bg-primary), 1px 5px 0 var(--bg-primary), 1px 5.5px 0 var(--bg-primary), 1px 6px 0 var(--bg-primary),
+        -0.5px -6px 0 var(--bg-primary), -0.5px -5.5px 0 var(--bg-primary), -0.5px -5px 0 var(--bg-primary), -0.5px -4.5px 0 var(--bg-primary), -0.5px -4px 0 var(--bg-primary), -0.5px -3.5px 0 var(--bg-primary), -0.5px -3px 0 var(--bg-primary), -0.5px -2.5px 0 var(--bg-primary), -0.5px -2px 0 var(--bg-primary), -0.5px -1.5px 0 var(--bg-primary), -0.5px -1px 0 var(--bg-primary), -0.5px -0.5px 0 var(--bg-primary), -0.5px 0 0 var(--bg-primary), -0.5px 0.5px 0 var(--bg-primary), -0.5px 1px 0 var(--bg-primary), -0.5px 1.5px 0 var(--bg-primary), -0.5px 2px 0 var(--bg-primary), -0.5px 2.5px 0 var(--bg-primary), -0.5px 3px 0 var(--bg-primary), -0.5px 3.5px 0 var(--bg-primary), -0.5px 4px 0 var(--bg-primary), -0.5px 4.5px 0 var(--bg-primary), -0.5px 5px 0 var(--bg-primary), -0.5px 5.5px 0 var(--bg-primary), -0.5px 6px 0 var(--bg-primary),
+        0.5px -6px 0 var(--bg-primary), 0.5px -5.5px 0 var(--bg-primary), 0.5px -5px 0 var(--bg-primary), 0.5px -4.5px 0 var(--bg-primary), 0.5px -4px 0 var(--bg-primary), 0.5px -3.5px 0 var(--bg-primary), 0.5px -3px 0 var(--bg-primary), 0.5px -2.5px 0 var(--bg-primary), 0.5px -2px 0 var(--bg-primary), 0.5px -1.5px 0 var(--bg-primary), 0.5px -1px 0 var(--bg-primary), 0.5px -0.5px 0 var(--bg-primary), 0.5px 0 0 var(--bg-primary), 0.5px 0.5px 0 var(--bg-primary), 0.5px 1px 0 var(--bg-primary), 0.5px 1.5px 0 var(--bg-primary), 0.5px 2px 0 var(--bg-primary), 0.5px 2.5px 0 var(--bg-primary), 0.5px 3px 0 var(--bg-primary), 0.5px 3.5px 0 var(--bg-primary), 0.5px 4px 0 var(--bg-primary), 0.5px 4.5px 0 var(--bg-primary), 0.5px 5px 0 var(--bg-primary), 0.5px 5.5px 0 var(--bg-primary), 0.5px 6px 0 var(--bg-primary);
+}
+
+/* Exclude form inputs from border */
+input, textarea, select, option {
+    text-shadow: none;
+}
+
 main {
     flex: 1;
     padding-bottom: 250px;
@@ -109,6 +148,10 @@ header.hero {
     text-align: left;
 }
 
+main .hero-content {
+    max-width: 100%;
+}
+
 header .hero-content {
     max-width: 100%;
     display: flex;
@@ -133,12 +176,12 @@ header .hero-content {
 }
 
 @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
+    from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
@@ -178,6 +221,7 @@ header .hero-brand {
     opacity: 0;
     color: #ffffff;
     letter-spacing: -0.03em;
+    text-shadow: none;
 }
 
 .title-grey {
@@ -215,13 +259,50 @@ header .hero-brand {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
+    width: 100%;
     animation: fadeUp 1s var(--transition) 0.5s forwards;
     opacity: 0;
 }
 
 .service-item {
+    position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.service-tile {
+    display: none;
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    min-height: 200px;
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: transform 0.2s var(--transition), opacity 0.2s var(--transition);
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+    border: none;
+    margin-top: 0.5rem;
+    animation: slideDown 0.3s var(--transition);
+}
+
+.service-tile.active {
+    display: flex;
+}
+
+.service-tile:hover {
+    transform: scale(1.05);
+}
+
+.service-tile-label {
+    color: #ffffff;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
 }
 
 
@@ -300,16 +381,39 @@ header .hero-brand {
     display: block;
 }
 
-
-.service-description {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 400;
-    line-height: 1.7;
-    margin: 0 0 1rem 0;
+.service-image {
     width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    display: block;
 }
 
+.service-description strong {
+    color: #ffffff;
+}
+
+/* Ensure links are visible with border */
+.service-description a,
+.legal-page a {
+    color: var(--accent) !important;
+    text-decoration: underline;
+}
+
+.service-description a:hover,
+.legal-page a:hover {
+    color: var(--accent) !important;
+    opacity: 0.8;
+}
+
+/* Ensure paragraphs in legal page are visible */
+.legal-page p,
+.service-description p {
+    color: var(--text-muted);
+}
+
+.legal-page strong,
 .service-description strong {
     color: #ffffff;
 }
@@ -415,7 +519,7 @@ header .hero-brand {
     gap: 0.5rem;
     padding: 1rem;
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 2px;
     background: rgba(10, 10, 11, 0.6);
     min-width: 100px;
     transition: all 0.3s var(--transition);
@@ -576,7 +680,7 @@ header .hero-brand {
     font-size: 1.025rem;
     transition: bottom 0.3s var(--transition);
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .btn-connect-float:hover {
@@ -594,7 +698,7 @@ header .hero-brand {
 
 .btn-footer-link {
     background: var(--accent);
-    color: #000000;
+    color: #ffffff;
     padding: 0.35rem 0.9rem;
     border: 1px solid transparent;
     border-radius: 6px;
@@ -604,16 +708,17 @@ header .hero-brand {
     font-size: 1.025rem;
     transition: background-color 0.2s var(--transition), color 0.2s var(--transition), border-color 0.2s var(--transition);
     box-sizing: border-box;
+    text-shadow: none;
 }
 
 .btn-footer-link:hover {
     background: var(--accent);
-    color: #000000;
+    color: #ffffff;
 }
 
 .btn-footer-link.active {
-    background: transparent;
-    color: var(--accent);
+    background: var(--accent);
+    color: #ffffff;
     border: 1px solid var(--accent);
 }
 
@@ -645,6 +750,16 @@ header .hero-brand {
     color: var(--text-secondary);
     font-size: 0.75rem;
     font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.footer-link-spatialspec {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s var(--transition);
+}
+
+.footer-link-spatialspec:hover {
+    color: var(--accent);
 }
 
 .footer-contact-info {
@@ -784,8 +899,8 @@ header .hero-brand {
     }
 
     .workflow-mini .workflow-arrow {
-        width: 12px;
-        height: 12px;
+        width: 6px;
+        height: 6px;
     }
 
     .contact-form input,

@@ -28,14 +28,30 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll(selector).forEach(button => {
             button.addEventListener('click', function(e) {
                 e.stopPropagation();
-                const dropdown = this.nextElementSibling;
-                const isActive = dropdown.classList.contains('active');
+                const serviceItem = this.closest('.service-item');
+                const tile = serviceItem ? serviceItem.querySelector('.service-tile') : null;
+                const isActive = serviceItem ? serviceItem.classList.contains('active') : false;
                 
-                closeAllDropdowns();
-                
-                if (!isActive) {
-                    dropdown.classList.add('active');
-                    this.classList.add('active');
+                if (isActive && tile && serviceItem) {
+                    // If already active, close this tile
+                    tile.classList.remove('active');
+                    serviceItem.classList.remove('active');
+                    this.classList.remove('active');
+                } else {
+                    // Close all other tiles and remove active from all service items
+                    document.querySelectorAll('.service-item').forEach(item => {
+                        item.classList.remove('active');
+                        const t = item.querySelector('.service-tile');
+                        if (t) t.classList.remove('active');
+                    });
+                    document.querySelectorAll('.btn-service').forEach(b => b.classList.remove('active'));
+                    
+                    // Open this tile
+                    if (tile && serviceItem) {
+                        tile.classList.add('active');
+                        serviceItem.classList.add('active');
+                        this.classList.add('active');
+                    }
                 }
             });
         });
@@ -45,6 +61,24 @@ document.addEventListener('DOMContentLoaded', function() {
     setupDropdownToggle('.btn-service');
     setupDropdownToggle('.btn-legal');
     setupDropdownToggle('.btn-footer-link');
+
+    /**
+     * Make tiles clickable to close themselves
+     */
+    document.querySelectorAll('.service-tile, .service-tile-label').forEach(tile => {
+        tile.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const serviceItem = this.closest('.service-item');
+            const serviceButton = serviceItem ? serviceItem.querySelector('.btn-service') : null;
+            
+            if (serviceItem && serviceButton) {
+                serviceItem.classList.remove('active');
+                const t = serviceItem.querySelector('.service-tile');
+                if (t) t.classList.remove('active');
+                serviceButton.classList.remove('active');
+            }
+        });
+    });
 
     /**
      * Close legal page function
@@ -169,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (isConnectPageShowing) {
                     // If already showing, toggle back to main body
+                    button.textContent = 'Contact';
                     closeConnectPage();
                     return;
                 }
@@ -179,6 +214,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeAllDropdowns();
                 // Add active class to Connect button
                 this.classList.add('active');
+                // Change button text to "Close"
+                button.textContent = 'Close';
                 // Hide nav and show connect page
                 navButtons.style.display = 'none';
                 
