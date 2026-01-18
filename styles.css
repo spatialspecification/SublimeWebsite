@@ -224,31 +224,6 @@ header .hero-brand {
     text-shadow: none;
 }
 
-.title-grey {
-    color: #aaaaaa;
-}
-
-.hero-tagline {
-    font-size: 1rem;
-    font-weight: 400;
-    color: var(--accent);
-    max-width: 500px;
-    margin-bottom: 0;
-    line-height: 1.7;
-    animation: fadeUp 1s var(--transition) 0.4s forwards;
-    opacity: 0;
-}
-
-.hero-divider {
-    width: 120px;
-    height: 2px;
-    background: var(--accent);
-    border: none;
-    border-radius: 2px;
-    margin: 0.5rem 0 1.5rem 0;
-    animation: fadeUp 1s var(--transition) 0.45s forwards;
-    opacity: 0;
-}
 
 /* =============================================
    Navigation
@@ -297,14 +272,6 @@ header .hero-brand {
 .service-tile:hover {
     transform: scale(1.05);
 }
-
-.service-tile-label {
-    color: #ffffff;
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 400;
-    font-size: 0.9rem;
-}
-
 
 /* =============================================
    Buttons
@@ -378,15 +345,6 @@ header .hero-brand {
 }
 
 .service-dropdown.active {
-    display: block;
-}
-
-.service-image {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 6px;
-    object-fit: cover;
     display: block;
 }
 
@@ -502,96 +460,6 @@ header .hero-brand {
 }
 
 /* =============================================
-   Workflow Section
-   ============================================= */
-
-.workflow-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.workflow-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 2px;
-    background: rgba(10, 10, 11, 0.6);
-    min-width: 100px;
-    transition: all 0.3s var(--transition);
-}
-
-.workflow-step:hover {
-    border-color: var(--accent);
-    background: rgba(220, 38, 38, 0.05);
-}
-
-.workflow-step:hover .workflow-icon {
-    color: var(--accent);
-}
-
-.workflow-icon {
-    width: 32px;
-    height: 32px;
-    color: var(--text-secondary);
-    transition: color 0.3s var(--transition);
-}
-
-.workflow-icon svg {
-    width: 100%;
-    height: 100%;
-}
-
-.workflow-label {
-    font-size: 0.8rem;
-    font-weight: 400;
-    color: var(--text-primary);
-    text-align: center;
-}
-
-.workflow-arrow {
-    width: 24px;
-    height: 24px;
-    color: var(--accent);
-    flex-shrink: 0;
-}
-
-.workflow-arrow svg {
-    width: 100%;
-    height: 100%;
-}
-
-/* Mini Workflow (inline with service descriptions) */
-.workflow-mini {
-    margin: 0.75rem 0 1.25rem 0;
-    gap: 0.35rem;
-}
-
-.workflow-mini .workflow-step {
-    padding: 0.6rem 0.75rem;
-    min-width: 70px;
-    gap: 0.3rem;
-}
-
-.workflow-mini .workflow-icon {
-    width: 20px;
-    height: 20px;
-}
-
-.workflow-mini .workflow-label {
-    font-size: 0.65rem;
-}
-
-.workflow-mini .workflow-arrow {
-    width: 16px;
-    height: 16px;
-}
-
-/* =============================================
    Footer
    ============================================= */
 
@@ -662,38 +530,6 @@ header .hero-brand {
 
 .footer-links .service-description {
     font-size: 0.75rem;
-}
-
-.btn-connect-float {
-    position: fixed;
-    bottom: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--accent);
-    color: #000000;
-    padding: 0.35rem 0.9rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-weight: 400;
-    font-size: 1.025rem;
-    transition: bottom 0.3s var(--transition);
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.btn-connect-float:hover {
-    background: var(--accent);
-    color: #000000;
-    transform: translateX(-50%) translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-.btn-connect-float.active {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
 }
 
 .btn-footer-link {
@@ -876,31 +712,6 @@ header .hero-brand {
 
     .hero-brand {
         gap: 0.5rem;
-    }
-
-    .workflow-container {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 0.5rem;
-    }
-
-    .workflow-mini .workflow-step {
-        padding: 0.5rem 0.6rem;
-        min-width: 60px;
-    }
-
-    .workflow-mini .workflow-label {
-        font-size: 0.55rem;
-    }
-
-    .workflow-mini .workflow-icon {
-        width: 16px;
-        height: 16px;
-    }
-
-    .workflow-mini .workflow-arrow {
-        width: 6px;
-        height: 6px;
     }
 
     .contact-form input,

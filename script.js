@@ -367,29 +367,4 @@ document.addEventListener('DOMContentLoaded', function() {
             closeAllDropdowns();
         }
     });
-
-    /**
-     * Sync Connect button position with footer
-     */
-    const siteFooter = document.querySelector('.site-footer');
-    const connectButton = document.querySelector('.btn-connect-float');
-    
-    function updateConnectButtonPosition() {
-        if (connectButton && siteFooter) {
-            const footerRect = siteFooter.getBoundingClientRect();
-            // Position button so its bottom aligns with footer's top
-            const footerTop = window.innerHeight - footerRect.top;
-            connectButton.style.bottom = footerTop + 'px';
-        }
-    }
-    
-    // Initial position update
-    setTimeout(updateConnectButtonPosition, 100);
-    
-    // Update on window resize (throttled)
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(updateConnectButtonPosition, 150);
-    });
 });
