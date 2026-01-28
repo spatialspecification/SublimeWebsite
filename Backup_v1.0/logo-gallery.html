@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublime Concreting - Professional Logo Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0a0b 0%, #1a1a1c 100%);
+            color: #fafafa;
+            padding: 0;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .gallery-header {
+            background: rgba(10, 10, 11, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #F97316;
+            letter-spacing: -0.02em;
+        }
+
+        .header-subtitle {
+            color: #c5c5ce;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #d1d5db;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn:hover {
+            background: rgba(220, 38, 38, 0.1);
+            border-color: #F97316;
+            color: #F97316;
+        }
+
+        .filter-btn.active {
+            background: #F97316;
+            border-color: #F97316;
+            color: white;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .view-btn {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .view-btn.active {
+            background: rgba(220, 38, 38, 0.2);
+            color: #F97316;
+        }
+
+        .gallery-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .logo-grid.compact {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .logo-card {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F97316, #C2410C);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .logo-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(220, 38, 38, 0.3);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .logo-card:hover::before {
+            opacity: 1;
+        }
+
+        .logo-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fafafa;
+            letter-spacing: -0.01em;
+        }
+
+        .logo-number {
+            background: rgba(220, 38, 38, 0.15);
+            color: #F97316;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .logo-variations {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .logo-variant {
+            background: rgba(10, 10, 11, 0.6);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .variant-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .variant-title {
+            color: #9ca3af;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .download-btn {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+            color: #F97316;
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .download-btn:hover {
+            background: #F97316;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .logo-preview {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-preview::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .preview-section {
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: rgba(24, 24, 27, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .preview-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #F97316;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .website-preview {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #0a0a0b;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 700px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .preview-controls {
+            text-align: center;
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .preview-btn {
+            background: #F97316;
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        .preview-btn:hover {
+            background: #EA580C;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        .stat-value {
+            color: #F97316;
+            font-weight: 600;
+            margin-right: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-header {
+                padding: 1.5rem;
+            }
+
+            .header-title {
+                font-size: 1.75rem;
+            }
+
+            .logo-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .logo-grid.compact {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-container {
+                padding: 2rem 1rem;
+            }
+
+            .controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-header">
+        <div class="header-content">
+            <div>
+                <h1 class="header-title">Sublime Concreting</h1>
+                <p class="header-subtitle">100 Black & White Professional Logo Variations</p>
+                <div class="stats">
+                    <span class="stat-item"><span class="stat-value" id="totalLogos">100</span>Total Logos</span>
+                    <span class="stat-item"><span class="stat-value" id="visibleLogos">100</span>Visible</span>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="filter-group">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="solid">Solid</button>
+                    <button class="filter-btn" data-filter="outline">Outline</button>
+                    <button class="filter-btn" data-filter="negative">Negative</button>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">Grid</button>
+                    <button class="view-btn" data-view="compact">Compact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-container">
+        <div class="logo-grid" id="logoGrid"></div>
+
+        <div class="preview-section">
+            <h2>Website Preview with Animations</h2>
+            <div class="website-preview">
+                <iframe id="websitePreview" src="index.html"></iframe>
+            </div>
+            <div class="preview-controls">
+                <button class="preview-btn" onclick="reloadPreview()">Reload Preview</button>
+                <button class="preview-btn" onclick="toggleFullscreen()">Fullscreen</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Generate 100 black and white logo variations
+        const logos = [];
+        const styles = ['geometric', 'minimalist', 'bold', 'elegant', 'modern', 'classic', 'abstract', 'architectural', 'industrial', 'refined'];
+        const patterns = ['solid', 'outline', 'negative', 'stripe', 'dot', 'line', 'grid', 'gradient'];
+        
+        for (let i = 1; i <= 100; i++) {
+            const style = styles[Math.floor(i / 10) % styles.length];
+            const pattern = patterns[Math.floor(i / 12) % patterns.length];
+            
+            logos.push({
+                id: i,
+                name: `Logo ${i} - ${style.charAt(0).toUpperCase() + style.slice(1)} ${pattern.charAt(0).toUpperCase() + pattern.slice(1)}`,
+                style: style,
+                pattern: pattern
+            });
+        }
+
+        function generateLogoSVG(logoId, style, pattern, variant) {
+            const black = '#000000';
+            const white = '#ffffff';
+            const gray = '#808080';
+            const darkGray = '#404040';
+            const lightGray = '#c0c0c0';
+            
+            let fillColor = black;
+            let strokeColor = black;
+            let bgColor = white;
+            let textColor = black;
+            
+            if (pattern === 'negative') {
+                fillColor = white;
+                strokeColor = white;
+                bgColor = black;
+                textColor = white;
+            } else if (pattern === 'outline') {
+                fillColor = 'none';
+                strokeColor = black;
+                bgColor = white;
+                textColor = black;
+            } else if (pattern === 'gradient') {
+                fillColor = gray;
+                strokeColor = black;
+                bgColor = white;
+                textColor = black;
+            }
+            
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', '300');
+            svg.setAttribute('height', '120');
+            svg.setAttribute('viewBox', '0 0 300 120');
+            
+            if (pattern === 'negative') {
+                const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                bg.setAttribute('width', '300');
+                bg.setAttribute('height', '120');
+                bg.setAttribute('fill', bgColor);
+                svg.appendChild(bg);
+            }
+            
+            const designType = logoId % 20;
+            
+            if (variant === 'signature') {
+                const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                createIcon(g, designType, 10, 30, 50, 60, fillColor, strokeColor, pattern, black, white, gray);
+                
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', '80');
+                text.setAttribute('y', '70');
+                text.setAttribute('fill', textColor);
+                text.setAttribute('font-size', '28');
+                text.setAttribute('font-weight', 'bold');
+                text.setAttribute('font-family', 'Arial, sans-serif');
+                text.textContent = 'SUBLIME';
+                g.appendChild(text);
+                
+                const subtext = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                subtext.setAttribute('x', '80');
+                subtext.setAttribute('y', '95');
+                subtext.setAttribute('fill', pattern === 'negative' ? lightGray : darkGray);
+                subtext.setAttribute('font-size', '16');
+                subtext.setAttribute('font-family', 'Arial, sans-serif');
+                subtext.textContent = 'CONCRETING';
+                g.appendChild(subtext);
+                
+                svg.appendChild(g);
+            } else if (variant === 'logo-only') {
+                const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                g.setAttribute('transform', 'translate(100, 20)');
+                createIcon(g, designType, 0, 0, 100, 80, fillColor, strokeColor, pattern, black, white, gray);
+                svg.appendChild(g);
+            } else {
+                const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                const iconG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                iconG.setAttribute('transform', 'translate(100, 10)');
+                createIcon(iconG, designType, 0, 0, 100, 50, fillColor, strokeColor, pattern, black, white, gray);
+                g.appendChild(iconG);
+                
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', '150');
+                text.setAttribute('y', '85');
+                text.setAttribute('fill', textColor);
+                text.setAttribute('font-size', '20');
+                text.setAttribute('font-weight', 'bold');
+                text.setAttribute('font-family', 'Arial, sans-serif');
+                text.setAttribute('text-anchor', 'middle');
+                text.textContent = 'SUBLIME';
+                g.appendChild(text);
+                
+                const subtext = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                subtext.setAttribute('x', '150');
+                subtext.setAttribute('y', '105');
+                subtext.setAttribute('fill', pattern === 'negative' ? lightGray : darkGray);
+                subtext.setAttribute('font-size', '12');
+                subtext.setAttribute('font-family', 'Arial, sans-serif');
+                subtext.setAttribute('text-anchor', 'middle');
+                subtext.textContent = 'CONCRETING';
+                g.appendChild(subtext);
+                
+                svg.appendChild(g);
+            }
+            
+            return svg;
+        }
+        
+        function createIcon(g, designType, x, y, w, h, fillColor, strokeColor, pattern, black, white, gray) {
+            const strokeWidth = pattern === 'outline' ? 3 : 0;
+            
+            const designs = [
+                () => { // 0: Solid block
+                    const block = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    block.setAttribute('x', x); block.setAttribute('y', y);
+                    block.setAttribute('width', w); block.setAttribute('height', h);
+                    block.setAttribute('fill', fillColor);
+                    block.setAttribute('stroke', strokeColor);
+                    block.setAttribute('stroke-width', strokeWidth);
+                    block.setAttribute('rx', '3');
+                    g.appendChild(block);
+                },
+                () => { // 1: S in block
+                    const block = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    block.setAttribute('x', x); block.setAttribute('y', y);
+                    block.setAttribute('width', w); block.setAttribute('height', h);
+                    block.setAttribute('fill', fillColor);
+                    block.setAttribute('stroke', strokeColor);
+                    block.setAttribute('stroke-width', strokeWidth);
+                    block.setAttribute('rx', '3');
+                    g.appendChild(block);
+                    const s = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    s.setAttribute('x', x + w/2);
+                    s.setAttribute('y', y + h/2 + 10);
+                    s.setAttribute('fill', pattern === 'negative' ? black : white);
+                    s.setAttribute('font-size', Math.min(w, h) * 0.6);
+                    s.setAttribute('font-weight', 'bold');
+                    s.setAttribute('font-family', 'Arial, sans-serif');
+                    s.setAttribute('text-anchor', 'middle');
+                    s.textContent = 'S';
+                    g.appendChild(s);
+                },
+                () => { // 2: Circle
+                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    circle.setAttribute('cx', x + w/2);
+                    circle.setAttribute('cy', y + h/2);
+                    circle.setAttribute('r', Math.min(w, h) / 2 - 5);
+                    circle.setAttribute('fill', fillColor);
+                    circle.setAttribute('stroke', strokeColor);
+                    circle.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(circle);
+                },
+                () => { // 3: Circle with S
+                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    circle.setAttribute('cx', x + w/2);
+                    circle.setAttribute('cy', y + h/2);
+                    circle.setAttribute('r', Math.min(w, h) / 2 - 5);
+                    circle.setAttribute('fill', fillColor);
+                    circle.setAttribute('stroke', strokeColor);
+                    circle.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(circle);
+                    const s = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    s.setAttribute('x', x + w/2);
+                    s.setAttribute('y', y + h/2 + 8);
+                    s.setAttribute('fill', pattern === 'negative' ? black : white);
+                    s.setAttribute('font-size', Math.min(w, h) * 0.5);
+                    s.setAttribute('font-weight', 'bold');
+                    s.setAttribute('font-family', 'Arial, sans-serif');
+                    s.setAttribute('text-anchor', 'middle');
+                    s.textContent = 'S';
+                    g.appendChild(s);
+                },
+                () => { // 4: Hexagon
+                    const hex = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+                    const cx = x + w/2, cy = y + h/2, r = Math.min(w, h) / 2 - 5;
+                    const points = [];
+                    for (let i = 0; i < 6; i++) {
+                        const angle = (Math.PI / 3) * i - Math.PI / 6;
+                        points.push(`${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`);
+                    }
+                    hex.setAttribute('points', points.join(' '));
+                    hex.setAttribute('fill', fillColor);
+                    hex.setAttribute('stroke', strokeColor);
+                    hex.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(hex);
+                },
+                () => { // 5: Square with diagonal
+                    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    rect.setAttribute('x', x); rect.setAttribute('y', y);
+                    rect.setAttribute('width', w); rect.setAttribute('height', h);
+                    rect.setAttribute('fill', fillColor);
+                    rect.setAttribute('stroke', strokeColor);
+                    rect.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(rect);
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', x); line.setAttribute('y1', y);
+                    line.setAttribute('x2', x + w); line.setAttribute('y2', y + h);
+                    line.setAttribute('stroke', pattern === 'negative' ? white : black);
+                    line.setAttribute('stroke-width', '3');
+                    g.appendChild(line);
+                },
+                () => { // 6: Overlapping squares
+                    const rect1 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    rect1.setAttribute('x', x); rect1.setAttribute('y', y);
+                    rect1.setAttribute('width', w * 0.6); rect1.setAttribute('height', h * 0.6);
+                    rect1.setAttribute('fill', fillColor);
+                    rect1.setAttribute('opacity', '0.8');
+                    rect1.setAttribute('stroke', strokeColor);
+                    rect1.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(rect1);
+                    const rect2 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    rect2.setAttribute('x', x + w * 0.4); rect2.setAttribute('y', y + h * 0.4);
+                    rect2.setAttribute('width', w * 0.6); rect2.setAttribute('height', h * 0.6);
+                    rect2.setAttribute('fill', fillColor);
+                    rect2.setAttribute('stroke', strokeColor);
+                    rect2.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(rect2);
+                },
+                () => { // 7: Triangle
+                    const tri = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+                    tri.setAttribute('points', `${x + w/2},${y} ${x + w},${y + h} ${x},${y + h}`);
+                    tri.setAttribute('fill', fillColor);
+                    tri.setAttribute('stroke', strokeColor);
+                    tri.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(tri);
+                },
+                () => { // 8: Diamond
+                    const diamond = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+                    diamond.setAttribute('points', `${x + w/2},${y} ${x + w},${y + h/2} ${x + w/2},${y + h} ${x},${y + h/2}`);
+                    diamond.setAttribute('fill', fillColor);
+                    diamond.setAttribute('stroke', strokeColor);
+                    diamond.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(diamond);
+                },
+                () => { // 9: Rounded square with inner circle
+                    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    rect.setAttribute('x', x); rect.setAttribute('y', y);
+                    rect.setAttribute('width', w); rect.setAttribute('height', h);
+                    rect.setAttribute('fill', fillColor);
+                    rect.setAttribute('rx', '5');
+                    rect.setAttribute('stroke', strokeColor);
+                    rect.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(rect);
+                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    circle.setAttribute('cx', x + w/2);
+                    circle.setAttribute('cy', y + h/2);
+                    circle.setAttribute('r', Math.min(w, h) / 4);
+                    circle.setAttribute('fill', pattern === 'negative' ? black : white);
+                    g.appendChild(circle);
+                },
+                () => { // 10: Geometric S shape
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', `M${x} ${y} L${x + w} ${y} L${x + w} ${y + h/3} L${x + w/2} ${y + h/3} L${x + w/2} ${y + h*2/3} L${x + w} ${y + h*2/3} L${x + w} ${y + h} L${x} ${y + h} L${x} ${y + h*2/3} L${x + w/2} ${y + h*2/3} L${x + w/2} ${y + h/3} L${x} ${y + h/3} Z`);
+                    path.setAttribute('fill', fillColor);
+                    path.setAttribute('stroke', strokeColor);
+                    path.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(path);
+                },
+                () => { // 11: Horizontal bars
+                    for (let i = 0; i < 3; i++) {
+                        const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                        bar.setAttribute('x', x);
+                        bar.setAttribute('y', y + (h/4) * i);
+                        bar.setAttribute('width', w);
+                        bar.setAttribute('height', h/6);
+                        bar.setAttribute('fill', fillColor);
+                        bar.setAttribute('stroke', strokeColor);
+                        bar.setAttribute('stroke-width', strokeWidth);
+                        g.appendChild(bar);
+                    }
+                },
+                () => { // 12: Vertical bars
+                    for (let i = 0; i < 3; i++) {
+                        const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                        bar.setAttribute('x', x + (w/4) * i);
+                        bar.setAttribute('y', y);
+                        bar.setAttribute('width', w/6);
+                        bar.setAttribute('height', h);
+                        bar.setAttribute('fill', fillColor);
+                        bar.setAttribute('stroke', strokeColor);
+                        bar.setAttribute('stroke-width', strokeWidth);
+                        g.appendChild(bar);
+                    }
+                },
+                () => { // 13: Grid pattern
+                    for (let i = 0; i < 3; i++) {
+                        for (let j = 0; j < 3; j++) {
+                            const cell = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                            cell.setAttribute('x', x + (w/3) * j);
+                            cell.setAttribute('y', y + (h/3) * i);
+                            cell.setAttribute('width', w/3 - 2);
+                            cell.setAttribute('height', h/3 - 2);
+                            cell.setAttribute('fill', (i + j) % 2 === 0 ? fillColor : (pattern === 'negative' ? black : white));
+                            cell.setAttribute('stroke', strokeColor);
+                            cell.setAttribute('stroke-width', '1');
+                            g.appendChild(cell);
+                        }
+                    }
+                },
+                () => { // 14: Concentric circles
+                    for (let i = 0; i < 3; i++) {
+                        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                        circle.setAttribute('cx', x + w/2);
+                        circle.setAttribute('cy', y + h/2);
+                        circle.setAttribute('r', Math.min(w, h) / 2 - 5 - (i * 8));
+                        circle.setAttribute('fill', 'none');
+                        circle.setAttribute('stroke', strokeColor);
+                        circle.setAttribute('stroke-width', '2');
+                        g.appendChild(circle);
+                    }
+                },
+                () => { // 15: Chevron
+                    const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+                    chevron.setAttribute('points', `${x},${y + h/2} ${x + w/3},${y} ${x + w*2/3},${y} ${x + w},${y + h/2} ${x + w*2/3},${y + h} ${x + w/3},${y + h}`);
+                    chevron.setAttribute('fill', fillColor);
+                    chevron.setAttribute('stroke', strokeColor);
+                    chevron.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(chevron);
+                },
+                () => { // 16: Arrow
+                    const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+                    arrow.setAttribute('points', `${x},${y + h/2} ${x + w*2/3},${y} ${x + w*2/3},${y + h/3} ${x + w},${y + h/3} ${x + w},${y + h*2/3} ${x + w*2/3},${y + h*2/3} ${x + w*2/3},${y + h}`);
+                    arrow.setAttribute('fill', fillColor);
+                    arrow.setAttribute('stroke', strokeColor);
+                    arrow.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(arrow);
+                },
+                () => { // 17: Cross
+                    const cross1 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    cross1.setAttribute('x', x + w/3);
+                    cross1.setAttribute('y', y);
+                    cross1.setAttribute('width', w/3);
+                    cross1.setAttribute('height', h);
+                    cross1.setAttribute('fill', fillColor);
+                    cross1.setAttribute('stroke', strokeColor);
+                    cross1.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(cross1);
+                    const cross2 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    cross2.setAttribute('x', x);
+                    cross2.setAttribute('y', y + h/3);
+                    cross2.setAttribute('width', w);
+                    cross2.setAttribute('height', h/3);
+                    cross2.setAttribute('fill', fillColor);
+                    cross2.setAttribute('stroke', strokeColor);
+                    cross2.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(cross2);
+                },
+                () => { // 18: Plus in circle
+                    const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                    circle.setAttribute('cx', x + w/2);
+                    circle.setAttribute('cy', y + h/2);
+                    circle.setAttribute('r', Math.min(w, h) / 2 - 5);
+                    circle.setAttribute('fill', fillColor);
+                    circle.setAttribute('stroke', strokeColor);
+                    circle.setAttribute('stroke-width', strokeWidth);
+                    g.appendChild(circle);
+                    const plus1 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    plus1.setAttribute('x', x + w/2 - w/12);
+                    plus1.setAttribute('y', y + h/3);
+                    plus1.setAttribute('width', w/6);
+                    plus1.setAttribute('height', h/3);
+                    plus1.setAttribute('fill', pattern === 'negative' ? black : white);
+                    g.appendChild(plus1);
+                    const plus2 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                    plus2.setAttribute('x', x + w/3);
+                    plus2.setAttribute('y', y + h/2 - h/12);
+                    plus2.setAttribute('width', w/3);
+                    plus2.setAttribute('height', h/6);
+                    plus2.setAttribute('fill', pattern === 'negative' ? black : white);
+                    g.appendChild(plus2);
+                },
+                () => { // 19: Abstract S curves
+                    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                    path.setAttribute('d', `M${x} ${y + h/2} Q${x + w/4} ${y}, ${x + w/2} ${y + h/4} T${x + w} ${y + h/2} Q${x + w*3/4} ${y + h}, ${x + w/2} ${y + h*3/4} T${x} ${y + h/2}`);
+                    path.setAttribute('fill', 'none');
+                    path.setAttribute('stroke', strokeColor);
+                    path.setAttribute('stroke-width', '4');
+                    path.setAttribute('stroke-linecap', 'round');
+                    g.appendChild(path);
+                }
+            ];
+            
+            if (designs[designType]) {
+                designs[designType]();
+            }
+            
+            // Add pattern overlays
+            if (pattern === 'stripe') {
+                for (let i = 0; i < 5; i++) {
+                    const stripe = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    stripe.setAttribute('x1', x);
+                    stripe.setAttribute('y1', y + (h/6) * i);
+                    stripe.setAttribute('x2', x + w);
+                    stripe.setAttribute('y2', y + (h/6) * i);
+                    stripe.setAttribute('stroke', pattern === 'negative' ? black : white);
+                    stripe.setAttribute('stroke-width', '1');
+                    stripe.setAttribute('opacity', '0.3');
+                    g.appendChild(stripe);
+                }
+            } else if (pattern === 'dot') {
+                for (let i = 0; i < 4; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                        dot.setAttribute('cx', x + (w/5) * (j + 1));
+                        dot.setAttribute('cy', y + (h/5) * (i + 1));
+                        dot.setAttribute('r', '2');
+                        dot.setAttribute('fill', pattern === 'negative' ? black : white);
+                        dot.setAttribute('opacity', '0.5');
+                        g.appendChild(dot);
+                    }
+                }
+            } else if (pattern === 'line') {
+                for (let i = 0; i < 3; i++) {
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', x);
+                    line.setAttribute('y1', y + (h/4) * (i + 1));
+                    line.setAttribute('x2', x + w);
+                    line.setAttribute('y2', y + (h/4) * (i + 1));
+                    line.setAttribute('stroke', pattern === 'negative' ? black : white);
+                    line.setAttribute('stroke-width', '1');
+                    line.setAttribute('opacity', '0.4');
+                    g.appendChild(line);
+                }
+            } else if (pattern === 'grid') {
+                for (let i = 1; i < 3; i++) {
+                    const vLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    vLine.setAttribute('x1', x + (w/3) * i);
+                    vLine.setAttribute('y1', y);
+                    vLine.setAttribute('x2', x + (w/3) * i);
+                    vLine.setAttribute('y2', y + h);
+                    vLine.setAttribute('stroke', pattern === 'negative' ? black : white);
+                    vLine.setAttribute('stroke-width', '1');
+                    vLine.setAttribute('opacity', '0.3');
+                    g.appendChild(vLine);
+                    const hLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    hLine.setAttribute('x1', x);
+                    hLine.setAttribute('y1', y + (h/3) * i);
+                    hLine.setAttribute('x2', x + w);
+                    hLine.setAttribute('y2', y + (h/3) * i);
+                    hLine.setAttribute('stroke', pattern === 'negative' ? black : white);
+                    hLine.setAttribute('stroke-width', '1');
+                    hLine.setAttribute('opacity', '0.3');
+                    g.appendChild(hLine);
+                }
+            }
+        }
+
+        function createLogoCard(logo) {
+            const card = document.createElement('div');
+            card.className = 'logo-card';
+            card.setAttribute('data-pattern', logo.pattern);
+            
+            card.innerHTML = `
+                <div class="logo-card-header">
+                    <div class="logo-card-title">${logo.name}</div>
+                    <div class="logo-number">#${logo.id}</div>
+                </div>
+                <div class="logo-variations">
+                    <div class="logo-variant">
+                        <div class="variant-header">
+                            <span class="variant-title">Signature (Horizontal)</span>
+                            <button class="download-btn" onclick="downloadSVG(${logo.id}, 'signature')">Download</button>
+                        </div>
+                        <div class="logo-preview" id="sig-${logo.id}"></div>
+                    </div>
+                    <div class="logo-variant">
+                        <div class="variant-header">
+                            <span class="variant-title">Logo Only</span>
+                            <button class="download-btn" onclick="downloadSVG(${logo.id}, 'logo-only')">Download</button>
+                        </div>
+                        <div class="logo-preview" id="logo-${logo.id}"></div>
+                    </div>
+                    <div class="logo-variant">
+                        <div class="variant-header">
+                            <span class="variant-title">Logo with Text</span>
+                            <button class="download-btn" onclick="downloadSVG(${logo.id}, 'logo-with-text')">Download</button>
+                        </div>
+                        <div class="logo-preview" id="text-${logo.id}"></div>
+                    </div>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                const sigPreview = card.querySelector(`#sig-${logo.id}`);
+                const logoPreview = card.querySelector(`#logo-${logo.id}`);
+                const textPreview = card.querySelector(`#text-${logo.id}`);
+                
+                if (sigPreview) {
+                    sigPreview.appendChild(generateLogoSVG(logo.id, logo.style, logo.pattern, 'signature'));
+                }
+                if (logoPreview) {
+                    logoPreview.appendChild(generateLogoSVG(logo.id, logo.style, logo.pattern, 'logo-only'));
+                }
+                if (textPreview) {
+                    textPreview.appendChild(generateLogoSVG(logo.id, logo.style, logo.pattern, 'logo-with-text'));
+                }
+            }, 10);
+            
+            return card;
+        }
+
+        // Filter functionality
+        let currentFilter = 'all';
+        let currentView = 'grid';
+
+        function filterLogos(filter) {
+            currentFilter = filter;
+            const cards = document.querySelectorAll('.logo-card');
+            let visible = 0;
+            
+            cards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-pattern') === filter) {
+                    card.style.display = 'block';
+                    visible++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('visibleLogos').textContent = visible;
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-filter') === filter);
+            });
+        }
+
+        function setView(view) {
+            currentView = view;
+            const grid = document.getElementById('logoGrid');
+            grid.classList.toggle('compact', view === 'compact');
+            
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-view') === view);
+            });
+        }
+
+        // Event listeners
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterLogos(btn.getAttribute('data-filter'));
+            });
+        });
+
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setView(btn.getAttribute('data-view'));
+            });
+        });
+
+        // Download SVG function
+        function downloadSVG(logoId, variant) {
+            const logo = logos.find(l => l.id === logoId);
+            if (!logo) return;
+            
+            const svg = generateLogoSVG(logo.id, logo.style, logo.pattern, variant);
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const blob = new Blob([svgData], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `sublime-logo-${logoId}-${variant}.svg`;
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Render all logos
+        const grid = document.getElementById('logoGrid');
+        logos.forEach(logo => {
+            grid.appendChild(createLogoCard(logo));
+        });
+
+        function reloadPreview() {
+            const iframe = document.getElementById('websitePreview');
+            iframe.src = iframe.src;
+        }
+
+        function toggleFullscreen() {
+            const preview = document.querySelector('.website-preview');
+            if (!document.fullscreenElement) {
+                preview.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
