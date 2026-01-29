@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="SublimeLogoNoBG.png">
+    <link rel="icon" type="image/png" href="SUBLiME_logo_NoBG.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,16 +20,37 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- SVG filter: make white/near-white transparent, keep logo colours -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute">
+        <defs>
+            <filter id="white-to-transparent" color-interpolation-filters="sRGB">
+                <!-- Put whiteness (R+G+B)/3 in 0-1 into alpha -->
+                <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0.333 0.333 0.333 0 0" result="withWhiteness"/>
+                <!-- Threshold: only alpha > ~0.9 (near white) becomes 0 -->
+                <feComponentTransfer in="withWhiteness" result="mask">
+                    <feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 0"/>
+                </feComponentTransfer>
+                <!-- Apply mask to original so only non-white areas show -->
+                <feComposite in="SourceGraphic" in2="mask" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
     <!-- Logo Splash Screen -->
     <div id="logo-splash" class="logo-splash">
-        <div class="splash-logo">SUBLiME</div>
+        <div class="splash-content">
+            <div class="splash-logo">SUBLiME</div>
+        </div>
     </div>
 
     <!-- Main Header with Logo -->
     <header class="main-header">
         <div class="header-content">
-            <div class="logo-container">
-                <div class="header-logo" id="header-logo">SUBLiME</div>
+            <div class="header-left" id="header-logo">
+                <img src="SUBLiME_logo_NoBG.png" alt="SUBLiME" class="header-logo-img">
+                <div class="header-brand">
+                    <span class="header-logo-title">SUBLiME</span>
+                    <span class="header-logo-subtitle">Concreting</span>
+                </div>
             </div>
             <nav class="header-nav">
                 <div class="header-icons">
@@ -52,14 +73,14 @@
                 </div>
             </nav>
         </div>
-        <div class="header-tagline-panel">
-            <p class="header-tagline">SUBLiME provides high-quality residential concreting solutions in Queensland. We offer years of experience and ensure your dreams come to fruition.</p>
-        </div>
     </header>
     
     <!-- Main Content -->
     <main class="main-content">
         <div class="content-wrapper">
+            <div class="header-tagline-panel body-tagline-panel">
+                <p class="header-tagline">SUBLiME provides high-quality residential concreting solutions in Queensland. We offer years of experience and ensure your dreams come to fruition.</p>
+            </div>
             <!-- Services Grid -->
             <section class="services-section" id="services-section">
                 <div class="services-grid" id="services-grid">

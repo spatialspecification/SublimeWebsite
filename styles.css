@@ -96,12 +96,17 @@ input, textarea, select, option {
     text-shadow: none;
 }
 
-main {
-    flex: 1;
+main,
+.main-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
     padding-bottom: 2rem;
 }
 
 .site-footer {
+    flex-shrink: 0;
     margin-top: auto;
     width: 100%;
     background: transparent;
@@ -126,6 +131,13 @@ main {
     z-index: 10000;
     opacity: 1;
     transition: opacity 1s ease-out;
+}
+
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .logo-splash::after {
@@ -170,6 +182,7 @@ main {
     animation: logoEntrance 2s ease-out forwards;
     white-space: nowrap;
     line-height: 1;
+    opacity: 0;
 }
 
 @keyframes logoEntrance {
@@ -191,6 +204,7 @@ main {
     position: relative;
     width: 100%;
     padding: 2rem 2rem 0.75rem;
+    padding-left: 1rem;
     background: transparent;
     backdrop-filter: none;
     border-bottom: none;
@@ -210,11 +224,65 @@ main {
     gap: 2rem;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    flex: 0 0 auto;
+    min-width: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+}
+
+.header-left.visible {
+    opacity: 1;
+}
+
+.header-logo-img {
+    height: clamp(77px, 11.2vw, 115px);
+    width: auto;
+    display: block;
+    object-fit: contain;
+    filter: url(#white-to-transparent);
+}
+
+.header-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+}
+
+.header-logo-title {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.header-logo-subtitle {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    line-height: 1;
+}
+
 .header-tagline-panel {
-    width: 80%;
+    width: 70%;
     max-width: 1400px;
     margin: 0 auto;
     margin-top: 3rem;
+}
+
+/* Tagline in body: same start position (main padding provides top spacing) */
+.body-tagline-panel {
+    margin-top: 0;
 }
 
 .header-tagline {
@@ -229,38 +297,13 @@ main {
     text-shadow: none;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    position: relative;
-    flex: 0 0 auto;
-}
-
-.header-logo {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 0.1em;
-    opacity: 0;
-    transition: opacity 1.5s ease-out;
-    flex-shrink: 0;
-    white-space: nowrap;
-    line-height: 1;
-}
-
-
-.header-logo.visible {
-    opacity: 1;
-}
-
 .header-nav {
+    flex: 1;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 1.5rem;
-    flex: 0 0 auto;
-    margin-left: auto;
+    min-width: 0;
 }
 
 .btn-header-nav {
@@ -350,10 +393,12 @@ button.header-icon {
 }
 
 .content-wrapper {
-    max-width: 1400px;
-    margin: 0 auto;
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
     gap: 4rem;
 }
 
@@ -1381,12 +1426,6 @@ button.footer-contact-icon {
         align-items: center;
     }
 
-    .logo-container {
-        gap: 0.75rem;
-        flex: 0 0 auto;
-        justify-content: flex-start;
-    }
-
     .header-nav {
         flex: 0 0 auto;
         justify-content: flex-end;
@@ -1410,19 +1449,12 @@ button.footer-contact-icon {
         height: 25px;
     }
 
-    .header-logo {
-        font-size: clamp(2rem, 6vw, 3rem);
+    .header-logo-img {
+        height: clamp(67px, 16vw, 96px);
     }
 
     .splash-logo {
         font-size: clamp(2rem, 8vw, 3rem);
-    }
-
-    .splash-logo {
-        width: 320px;
-        height: 320px;
-        max-width: 85vw;
-        max-height: 85vh;
     }
 
     .main-content {
@@ -1506,13 +1538,6 @@ button.footer-contact-icon {
     .services-title {
         font-size: 1.75rem;
         margin-bottom: 1.5rem;
-    }
-
-    .splash-logo {
-        width: 320px;
-        height: 320px;
-        max-width: 85vw;
-        max-height: 85vh;
     }
 
     .footer-content {

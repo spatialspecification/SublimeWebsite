@@ -1,0 +1,1584 @@
+/* =============================================
+   Spatialspec - Main Stylesheet
+   ============================================= */
+
+:root {
+    --bg-primary: #0a0a0b;
+    --bg-elevated: #1a1a1c;
+    --bg-overlay: rgba(10, 10, 11, 0.85);
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --text-muted: #9ca3af;
+    --text-subtle: #6b7280;
+    /* CTA Color based on SUBLiME logo - Professional Orange/Amber */
+    --accent: #F97316;
+    --accent-hover: #EA580C;
+    --accent-light: rgba(249, 115, 22, 0.15);
+    --accent-dark: #C2410C;
+    --accent-glow: rgba(249, 115, 22, 0.3);
+    --border-color: #2a2a2d;
+    --border-subtle: #1f1f22;
+    --transition: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-accent: 0 8px 24px rgba(249, 115, 22, 0.25);
+}
+
+/* =============================================
+   Reset & Base
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('SlabLime1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -2;
+    pointer-events: none;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 11, 0.4);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* No text shadow on headings or titles */
+h1, h2, h3, h4, h5, h6, .services-title, .tile-title {
+    text-shadow: none;
+}
+
+/* Exclude form inputs from border */
+input, textarea, select, option {
+    text-shadow: none;
+}
+
+main,
+.main-content {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding-bottom: 2rem;
+}
+
+.site-footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    width: 100%;
+    background: transparent;
+    backdrop-filter: none;
+    border-top: none;
+}
+
+/* =============================================
+   Logo Splash Screen
+   ============================================= */
+
+.logo-splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-splash::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('SlabLime1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.logo-splash::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 11, 0.4);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.logo-splash.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.splash-logo {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+    animation: logoEntrance 2s ease-out forwards;
+    white-space: nowrap;
+    line-height: 1;
+    opacity: 0;
+}
+
+@keyframes logoEntrance {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* =============================================
+   Header
+   ============================================= */
+
+.main-header {
+    position: relative;
+    width: 100%;
+    padding: 2rem 2rem 0.75rem;
+    padding-left: 1rem;
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 2rem;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.35rem;
+    flex: 0 0 auto;
+    min-width: 0;
+    opacity: 0;
+    transition: opacity 1.5s ease-out;
+}
+
+.header-left.visible {
+    opacity: 1;
+}
+
+.header-logo-img {
+    height: clamp(77px, 11.2vw, 115px);
+    width: auto;
+    display: block;
+    object-fit: contain;
+    filter: url(#white-to-transparent);
+}
+
+.header-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+}
+
+.header-logo-title {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.header-logo-subtitle {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    line-height: 1;
+}
+
+.header-tagline-panel {
+    width: 70%;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+/* Tagline in body: same start position (main padding provides top spacing) */
+.body-tagline-panel {
+    margin-top: 0;
+}
+
+.header-tagline {
+    margin: 0;
+    padding: 0.5rem 2rem 1rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ffffff;
+    font-weight: 400;
+    text-align: center;
+    text-shadow: none;
+}
+
+.header-nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    min-width: 0;
+}
+
+.btn-header-nav {
+    background: transparent;
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    transition: all 0.25s var(--transition);
+    text-shadow: none;
+}
+
+.btn-header-nav:hover {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.btn-header-nav.active {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 0 0 auto;
+}
+
+.header-icon {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.25s var(--transition);
+    text-decoration: none;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.header-icon:hover {
+    color: var(--accent);
+    background: transparent;
+    transform: translateY(-1px);
+}
+
+.header-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: currentColor;
+}
+
+button.header-icon {
+    font: inherit;
+    appearance: none;
+}
+
+/* =============================================
+   Main Content
+   ============================================= */
+
+.main-content {
+    margin-top: 0;
+    padding: 3rem 2rem 4rem;
+    opacity: 0;
+    animation: fadeInContent 1s ease-out 3s forwards;
+}
+
+@keyframes fadeInContent {
+    to {
+        opacity: 1;
+    }
+}
+
+.content-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 4rem;
+}
+
+/* =============================================
+   Hero Image Section
+   ============================================= */
+
+.hero-image-section {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: visible;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: transform 0.6s var(--transition-smooth);
+    background: transparent;
+}
+
+.hero-image-container:hover .hero-image {
+    transform: scale(1.05);
+}
+
+.hero-image-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem 2rem;
+    background: linear-gradient(to top, rgba(10, 10, 11, 0.95) 0%, rgba(10, 10, 11, 0.7) 50%, transparent 100%);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    color: var(--accent);
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-shadow: none;
+    z-index: 2;
+}
+
+/* =============================================
+   Services Section
+   ============================================= */
+
+
+.services-title {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    position: relative;
+}
+
+.services-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    border-radius: 2px;
+}
+
+.about-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.about-content {
+    font-size: 1.125rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    font-weight: 400;
+    text-align: center;
+}
+
+.about-content p {
+    margin-bottom: 1.75rem;
+}
+
+.about-content p:first-of-type {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.75;
+}
+
+.about-content strong {
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.about-content a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+.about-content a:hover {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+}
+
+.services-section {
+    padding: 4rem 2rem;
+    background: transparent;
+    backdrop-filter: none;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.service-tile {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    background: rgba(24, 24, 27, 0.3);
+    backdrop-filter: blur(4px);
+    border: none;
+    transition: all 0.4s var(--transition-smooth);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: tileFadeIn 1s ease-out forwards;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.service-tile::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 11, 0.4) 50%, rgba(10, 10, 11, 0.85) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.service-tile:nth-child(1) { animation-delay: 3.2s; }
+.service-tile:nth-child(2) { animation-delay: 3.4s; }
+.service-tile:nth-child(3) { animation-delay: 3.6s; }
+.service-tile:nth-child(4) { animation-delay: 3.8s; }
+.service-tile:nth-child(5) { animation-delay: 4.0s; }
+.service-tile:nth-child(6) { animation-delay: 4.2s; }
+.service-tile:nth-child(7) { animation-delay: 4.4s; }
+.service-tile:nth-child(8) { animation-delay: 4.6s; }
+
+@keyframes tileFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-tile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-light) 0%, rgba(249, 115, 22, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s var(--transition);
+    z-index: 1;
+}
+
+.service-tile:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.service-tile:hover::after {
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 11, 0.2) 50%, rgba(10, 10, 11, 0.75) 100%);
+}
+
+.service-tile:hover::before {
+    opacity: 1;
+}
+
+.tile-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.tile-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) scale(0.58);
+    object-fit: cover;
+}
+
+.tile-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 11, 0.3) 50%, rgba(10, 10, 11, 0.8) 100%);
+    z-index: 2;
+    transition: opacity 0.3s var(--transition);
+}
+
+.service-tile:hover .tile-overlay {
+    opacity: 0.9;
+}
+
+.tile-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: transparent;
+}
+
+.tile-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    text-align: center;
+}
+
+.tile-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    opacity: 0.95;
+}
+
+/* Service-specific background images using actual project images */
+/* Service-specific background images using actual project images */
+.service-tile[data-service="driveways"] {
+    background-image: url('SlabLime1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.service-tile[data-service="slabs"] {
+    background-image: url('Slablime3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.service-tile[data-service="pool-surrounds"] {
+    background-image: url('SlabLime1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.service-tile[data-service="extensions"] {
+    background-image: url('SlabLime2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =============================================
+   Buttons
+   ============================================= */
+
+.btn-service,
+.btn-submit {
+    background: transparent;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.25s var(--transition);
+}
+
+.btn-service:hover,
+.btn-service.active,
+.btn-submit:hover {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.btn-submit {
+    margin-right: auto;
+}
+
+.btn-submit.sent {
+    background: transparent;
+    color: var(--accent);
+}
+
+.btn-legal {
+    background: transparent;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
+    transition: all 0.25s var(--transition);
+    align-self: flex-start;
+}
+
+.btn-legal:hover,
+.btn-legal.active {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+/* =============================================
+   Dropdowns
+   ============================================= */
+
+.service-dropdown {
+    display: none;
+    background: transparent;
+    padding: 1rem 0;
+    animation: slideDown 0.3s var(--transition);
+    width: 100%;
+    max-width: 500px;
+}
+
+.service-dropdown.active {
+    display: block;
+}
+
+.service-description strong {
+    color: #ffffff;
+}
+
+.service-description a,
+.legal-page a {
+    color: var(--accent) !important;
+    text-decoration: underline;
+}
+
+.service-description a:hover,
+.legal-page a:hover {
+    color: var(--accent) !important;
+    opacity: 0.8;
+}
+
+.legal-page p,
+.service-description p {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    font-weight: 400;
+}
+
+.legal-page strong,
+.service-description strong {
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* =============================================
+   Service Panel & Form
+   ============================================= */
+
+.service-panel {
+    border: none;
+    padding: 0;
+    margin-top: 0;
+    background: transparent;
+    width: 100%;
+}
+
+.service-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.contact-form {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0;
+    width: 100%;
+}
+
+.contact-form.active,
+.service-dropdown.active .contact-form,
+#connect-page .contact-form,
+#email-page .contact-form {
+    display: flex;
+}
+
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    transition: all 0.25s var(--transition);
+    width: 100%;
+    letter-spacing: -0.01em;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    outline: none;
+    background: transparent;
+    box-shadow: 0 0 0 2px var(--accent-light);
+}
+
+.contact-form select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    color: var(--text-subtle);
+}
+
+.contact-form select.has-value {
+    color: var(--text-primary) !important;
+}
+
+.contact-form select option {
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--text-subtle);
+    font-weight: 400;
+}
+
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* =============================================
+   Footer
+   ============================================= */
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.footer-row:not(:first-of-type) {
+    margin-top: -0.25rem;
+}
+
+.footer-links .service-item {
+    position: relative;
+}
+
+.footer-links .service-item:first-child {
+    margin-top: 0;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    align-self: flex-start;
+}
+
+.footer-row-centered {
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-left-item {
+    flex: 1 1 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+}
+
+.footer-center-item {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-right-item {
+    flex: 1 1 0;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.footer-copyright {
+    color: #ffffff;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+.footer-copyright-symbol {
+    font-size: 1em;
+    display: inline-block;
+}
+
+.footer-contact-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 0.75rem;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s var(--transition);
+}
+
+.footer-contact-icon:hover {
+    color: var(--accent);
+    background: transparent;
+    transform: translateY(-1px);
+}
+
+.footer-contact-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: currentColor;
+}
+
+button.footer-contact-icon {
+    font: inherit;
+    cursor: pointer;
+    appearance: none;
+}
+
+.footer-links .service-item:not(:first-child) {
+    align-self: flex-start;
+}
+
+.footer-links .service-dropdown {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    animation: slideUp 0.3s var(--transition);
+    width: 100%;
+    max-width: 600px;
+    min-width: 400px;
+    z-index: 10;
+}
+
+.footer-center-item .service-item {
+    position: relative;
+}
+
+.footer-center-item .service-dropdown {
+    background: rgba(10, 10, 11, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.footer-center-item .service-description {
+    max-width: 100%;
+}
+
+.footer-links .service-description {
+    font-size: 0.75rem;
+}
+
+.btn-footer-link {
+    background: transparent;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    transition: all 0.25s var(--transition);
+    box-sizing: border-box;
+    text-shadow: none;
+}
+
+.btn-footer-link:hover,
+.btn-footer-link.active {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.btn-footer-text {
+    background: transparent;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+    transition: all 0.25s var(--transition);
+    box-shadow: none;
+}
+
+.btn-footer-text:hover,
+.btn-footer-text.active {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: none;
+}
+
+.footer-separator {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    margin: 0 0.25rem;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+.footer-link-spatialspec {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s var(--transition);
+}
+
+.footer-link-spatialspec:hover {
+    color: var(--accent);
+}
+
+.footer-contact-info {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+    text-align: right;
+}
+
+/* =============================================
+   Legal Page
+   ============================================= */
+
+.legal-page {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+    width: 100%;
+    opacity: 0;
+}
+
+.legal-page.show {
+    display: flex;
+    animation: fadeUp 1s var(--transition) 0.5s forwards;
+}
+
+#connect-page {
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 60vh;
+    transform-origin: center center;
+    transition: opacity 0.3s var(--transition), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#connect-page.show {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+}
+
+#connect-page .service-panel {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+}
+
+#connect-page .service-form-container {
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* =============================================
+   Email Page overlay (spatialspec-style form)
+   ============================================= */
+
+.email-page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow-y: auto;
+    background: rgba(10, 10, 11, 0.25);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.3s var(--transition);
+}
+
+.email-page-overlay.show {
+    display: flex;
+    opacity: 1;
+    animation: fadeUp 0.4s var(--transition) forwards;
+}
+
+.email-page-panel {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    padding: 2rem 2.5rem 2.5rem;
+    background: transparent;
+    border-radius: 16px;
+    border: none;
+    box-shadow: none;
+}
+
+#email-page .service-form-container {
+    width: 100%;
+}
+
+#email-page .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 0.25rem;
+}
+
+#email-page .form-actions .btn-submit {
+    margin-right: 0;
+}
+
+.btn-close-email {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.25s var(--transition);
+}
+
+.btn-close-email:hover {
+    background: transparent;
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+/* =============================================
+   Privacy & Terms – below header, main background, no panel
+   ============================================= */
+
+.legal-body-page {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    opacity: 0;
+    transition: opacity 0.3s var(--transition);
+}
+
+.legal-body-page.show {
+    display: flex;
+    opacity: 1;
+    animation: fadeUp 0.4s var(--transition) forwards;
+}
+
+.legal-body-panel {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.legal-body-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.legal-body-content {
+    margin-top: 0;
+}
+
+.legal-body-title {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.btn-close-legal {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: color 0.2s var(--transition), background 0.2s var(--transition);
+}
+
+.btn-close-legal:hover {
+    color: var(--accent);
+    background: transparent;
+}
+
+.legal-body-page .service-description {
+    padding: 0;
+}
+
+.legal-body-page .service-description p {
+    margin-bottom: 1rem;
+}
+
+.legal-body-page .service-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* =============================================
+   Animations
+   ============================================= */
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   Mobile Responsive
+   ============================================= */
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 1rem 1.5rem 0.5rem;
+        background: transparent;
+        backdrop-filter: none;
+    }
+
+    .header-tagline {
+        font-size: 0.875rem;
+        padding: 0.4rem 1.5rem 0.75rem;
+        line-height: 1.5;
+    }
+
+    .header-content {
+        flex-wrap: nowrap;
+        gap: 0.75rem 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-nav {
+        flex: 0 0 auto;
+        justify-content: flex-end;
+        margin-left: auto;
+        width: auto;
+    }
+
+    .header-icons {
+        gap: 0.5rem;
+        margin-left: 0;
+    }
+
+    .header-icon {
+        padding: 0.625rem;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .header-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .header-logo-img {
+        height: clamp(67px, 16vw, 96px);
+    }
+
+    .splash-logo {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    .main-content {
+        margin-top: 0;
+        padding: 2rem 1.5rem 4rem;
+    }
+
+    .hero-image-section {
+        padding: 0 1rem;
+    }
+
+    .hero-image-container {
+        border-radius: 16px;
+        padding: 1.5rem;
+    }
+
+    .hero-image {
+        max-width: 100%;
+    }
+
+    .hero-image-text {
+        padding: 2rem 1.5rem;
+        font-size: clamp(2rem, 10vw, 4rem);
+    }
+
+    .about-section {
+        padding: 2.5rem 1.5rem;
+        margin: 0 auto;
+    }
+
+    .services-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .footer-center-item .service-dropdown {
+        min-width: 300px;
+        max-width: calc(100vw - 2rem);
+        left: 0;
+        transform: none;
+        padding: 1.5rem;
+    }
+
+    .footer-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .footer-left-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .footer-right-item {
+        text-align: left;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .footer-contact-icons {
+        gap: 0.5rem;
+    }
+
+    .footer-contact-icon {
+        min-width: 36px;
+        min-height: 36px;
+        padding: 0.4rem;
+    }
+
+    .footer-contact-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .services-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-content {
+        padding: 1rem 1.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+        max-width: 100%;
+    }
+
+    #connect-page .service-form-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #connect-page .service-panel {
+        width: 100%;
+    }
+
+    .email-page-overlay {
+        padding: 1rem;
+    }
+
+    .email-page-panel {
+        max-width: 100%;
+        padding: 1.5rem 1.25rem 2rem;
+    }
+
+    #email-page .service-form-container {
+        padding-top: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tile-title {
+        font-size: 1.25rem;
+    }
+
+    .tile-subtitle {
+        font-size: 0.85rem;
+    }
+}
