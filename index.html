@@ -163,6 +163,7 @@
                 <div class="service-panel">
                     <div class="service-form-container">
                         <form class="contact-form" id="connect-contact-form">
+                            <!-- Same Web3Forms access key as email form (mitchconcrete@hotmail.com) -->
                             <input type="hidden" name="access_key" value="">
                             <input type="hidden" name="subject" value="New Sublime Concreting Contact">
                             <input type="hidden" name="from_name" value="Sublime Concreting Website">
@@ -171,27 +172,6 @@
                             <input type="email" name="email" placeholder="Email" required>
                             <textarea name="message" placeholder="Message" rows="3"></textarea>
                             <button type="submit" class="btn-submit">Send</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Email Page (form overlay, spatialspec-style) -->
-            <div id="email-page" class="legal-page email-page-overlay">
-                <div class="email-page-panel">
-                    <div class="service-form-container">
-                        <form class="contact-form" id="email-contact-form">
-                            <input type="hidden" name="access_key" value="">
-                            <input type="hidden" name="subject" value="New Sublime Concreting Enquiry">
-                            <input type="hidden" name="from_name" value="Sublime Concreting Website">
-                            <input type="text" name="name" placeholder="Name" required>
-                            <input type="text" name="company" placeholder="Company">
-                            <input type="email" name="email" placeholder="Email" required>
-                            <textarea name="message" placeholder="Message" rows="3"></textarea>
-                            <div class="form-actions">
-                                <button type="submit" class="btn-submit">Send</button>
-                                <button type="button" class="btn-close-email" aria-label="Close" title="Close">Close</button>
-                            </div>
                         </form>
                     </div>
                 </div>
@@ -239,6 +219,28 @@
 
         </div>
     </main>
+
+    <!-- Email form overlay: outside main so it stays visible when body.email-form-open hides .main-content -->
+    <div id="email-page" class="legal-page email-page-overlay">
+        <div class="email-page-panel">
+            <div class="service-form-container">
+                <form class="contact-form" id="email-contact-form">
+                    <!-- Set value to your Web3Forms access key (create at web3forms.com with mitchconcrete@hotmail.com) -->
+                    <input type="hidden" name="access_key" value="">
+                    <input type="hidden" name="subject" value="New Sublime Concreting Enquiry">
+                    <input type="hidden" name="from_name" value="Sublime Concreting Website">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="text" name="company" placeholder="Company">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <textarea name="message" placeholder="Message" rows="3"></textarea>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Send</button>
+                        <button type="button" class="btn-close-email" aria-label="Close" title="Close">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
     <footer class="site-footer">
         <div class="footer-content">

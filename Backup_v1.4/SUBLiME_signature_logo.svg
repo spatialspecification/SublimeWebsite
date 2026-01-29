@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 56" width="320" height="56">
+  <defs>
+    <style>
+      .title { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 22px; font-weight: 700; fill: #1a1a1a; letter-spacing: 0.1em; }
+      .subtitle { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 11px; font-weight: 500; fill: #6b7280; letter-spacing: 0.1em; }
+    </style>
+  </defs>
+  <!-- Logo image (place in same folder as this SVG, or update path) -->
+  <image href="SUBLiME_logo_NoBG.png" x="0" y="4" width="48" height="48" preserveAspectRatio="xMidYMid meet"/>
+  <!-- Title and subtitle block -->
+  <g transform="translate(56, 0)">
+    <text class="title" x="0" y="28">SUBLiME</text>
+    <text class="subtitle" x="0" y="44">Concreting</text>
+  </g>
+</svg>

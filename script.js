@@ -133,9 +133,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (siteFooter) {
                 siteFooter.style.display = '';
-                siteFooter.style.visibility = 'visible';
-                siteFooter.style.position = 'fixed';
-                siteFooter.style.bottom = '0';
+                siteFooter.style.visibility = '';
+                siteFooter.style.position = '';
+                siteFooter.style.bottom = '';
             }
             
             if (isMobile) {
@@ -172,6 +172,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
         const servicesSection = document.getElementById('services-section');
         if (servicesSection) servicesSection.style.display = 'block';
+        const siteFooter = document.querySelector('.site-footer');
+        if (siteFooter) {
+            siteFooter.style.position = '';
+            siteFooter.style.bottom = '';
+            siteFooter.style.visibility = '';
+            siteFooter.style.display = '';
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 

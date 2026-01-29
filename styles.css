@@ -1242,8 +1242,8 @@ body.email-form-open .site-footer {
     max-width: 520px;
     padding: 2rem 2.5rem 2.5rem;
     background: transparent;
-    border-radius: 16px;
     border: none;
+    border-radius: 16px;
     box-shadow: none;
 }
 
