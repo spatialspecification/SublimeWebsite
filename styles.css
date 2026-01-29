@@ -109,6 +109,9 @@ main,
     flex-shrink: 0;
     margin-top: auto;
     width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    box-sizing: border-box;
     background: transparent;
     backdrop-filter: none;
     border-top: none;
@@ -137,7 +140,7 @@ main,
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.15rem;
 }
 
 .logo-splash::after {
@@ -182,6 +185,18 @@ main,
     animation: logoEntrance 2s ease-out forwards;
     white-space: nowrap;
     line-height: 1;
+    opacity: 0;
+}
+
+.splash-logo-subtitle {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+    font-weight: 500;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-align: center;
+    animation: logoEntrance 2s ease-out 0.2s forwards;
     opacity: 0;
 }
 
@@ -250,7 +265,7 @@ main,
 .header-brand {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.15rem;
 }
 
@@ -271,10 +286,11 @@ main,
     color: var(--text-secondary);
     letter-spacing: 0.1em;
     line-height: 1;
+    text-align: center;
 }
 
 .header-tagline-panel {
-    width: 70%;
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     margin-top: 3rem;
@@ -289,7 +305,7 @@ main,
     margin: 0;
     padding: 0.5rem 2rem 1rem;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: 1.6;
     color: #ffffff;
     font-weight: 400;
@@ -304,35 +320,6 @@ main,
     justify-content: flex-end;
     gap: 1.5rem;
     min-width: 0;
-}
-
-.btn-header-nav {
-    background: transparent;
-    color: var(--text-primary);
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    cursor: pointer;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-weight: 500;
-    font-size: 1rem;
-    letter-spacing: -0.01em;
-    transition: all 0.25s var(--transition);
-    text-shadow: none;
-}
-
-.btn-header-nav:hover {
-    background: var(--accent-light);
-    border-color: var(--accent);
-    color: var(--accent);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px var(--accent-glow);
-}
-
-.btn-header-nav.active {
-    background: var(--accent-light);
-    border-color: var(--accent);
-    color: var(--accent);
 }
 
 .header-icons {
@@ -403,63 +390,6 @@ button.header-icon {
 }
 
 /* =============================================
-   Hero Image Section
-   ============================================= */
-
-.hero-image-section {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 2rem;
-}
-
-.hero-image-container {
-    position: relative;
-    width: 100%;
-    border-radius: 20px;
-    overflow: visible;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    border: none;
-    background: transparent;
-    backdrop-filter: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-}
-
-.hero-image {
-    width: 100%;
-    max-width: 1000px;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    transition: transform 0.6s var(--transition-smooth);
-    background: transparent;
-}
-
-.hero-image-container:hover .hero-image {
-    transform: scale(1.05);
-}
-
-.hero-image-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 3rem 2rem;
-    background: linear-gradient(to top, rgba(10, 10, 11, 0.95) 0%, rgba(10, 10, 11, 0.7) 50%, transparent 100%);
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 700;
-    color: var(--accent);
-    text-align: center;
-    letter-spacing: 0.1em;
-    text-shadow: none;
-    z-index: 2;
-}
-
-/* =============================================
    Services Section
    ============================================= */
 
@@ -486,55 +416,6 @@ button.header-icon {
     height: 4px;
     background: linear-gradient(90deg, transparent, var(--accent), transparent);
     border-radius: 2px;
-}
-
-.about-section {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 4rem 3rem;
-    background: transparent;
-    backdrop-filter: none;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
-}
-
-.about-content {
-    font-size: 1.125rem;
-    line-height: 1.85;
-    color: var(--text-secondary);
-    font-weight: 400;
-    text-align: center;
-}
-
-.about-content p {
-    margin-bottom: 1.75rem;
-}
-
-.about-content p:first-of-type {
-    font-size: 1.25rem;
-    color: var(--text-primary);
-    font-weight: 500;
-    line-height: 1.75;
-}
-
-.about-content strong {
-    color: var(--text-primary);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-}
-
-.about-content a {
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s var(--transition);
-    border-bottom: 1px solid transparent;
-}
-
-.about-content a:hover {
-    color: var(--accent-hover);
-    border-bottom-color: var(--accent-hover);
 }
 
 .services-section {
@@ -722,6 +603,68 @@ button.header-icon {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* =============================================
+   Contact CTA (body, below services)
+   ============================================= */
+
+.contact-cta-section {
+    padding: 3rem 2rem 4rem;
+    text-align: center;
+}
+
+.contact-cta-text {
+    margin: 0 0 1.5rem;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 1.25rem;
+    line-height: 1.85;
+    color: #ffffff;
+    font-weight: 400;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-cta-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.contact-cta-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    padding: 0.75rem;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s var(--transition);
+}
+
+.contact-cta-icon:hover {
+    color: var(--accent);
+    background: transparent;
+    transform: translateY(-1px);
+}
+
+.contact-cta-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: currentColor;
+}
+
+button.contact-cta-icon {
+    font: inherit;
+    cursor: pointer;
+    appearance: none;
 }
 
 /* =============================================
@@ -926,17 +869,17 @@ button.header-icon {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     margin-top: auto;
     margin-bottom: 1.25rem;
     flex-wrap: wrap;
     gap: 0.5rem;
     width: 100%;
-    padding: 1.5rem 2rem;
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
+    padding: 1.5rem 0;
 }
 
 .footer-links {
@@ -966,6 +909,45 @@ button.header-icon {
     width: 100%;
     gap: 1rem;
     align-self: flex-start;
+}
+
+.footer-row-single {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    row-gap: 0.5rem;
+    width: 100%;
+}
+
+.footer-row-single .footer-left-item {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem 1rem;
+    min-width: 0;
+}
+
+.footer-row-single .footer-center-item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-row-single .footer-right-item {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.footer-row-single .footer-copyright {
+    display: inline;
+    margin: 0;
 }
 
 .footer-row-centered {
@@ -1000,9 +982,9 @@ button.header-icon {
 }
 
 .footer-copyright {
-    color: #ffffff;
+    color: var(--text-secondary);
     font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 400;
     margin: 0;
 }
@@ -1090,12 +1072,12 @@ button.footer-contact-icon {
 }
 
 .footer-links .service-description {
-    font-size: 0.75rem;
+    font-size: 1rem;
 }
 
 .btn-footer-link {
     background: transparent;
-    color: #ffffff;
+    color: var(--text-secondary);
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
@@ -1118,14 +1100,14 @@ button.footer-contact-icon {
 
 .btn-footer-text {
     background: transparent;
-    color: #ffffff;
+    color: var(--text-secondary);
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.8rem;
     letter-spacing: -0.01em;
     line-height: 1.5;
     transition: all 0.25s var(--transition);
@@ -1142,13 +1124,13 @@ button.footer-contact-icon {
 
 .footer-separator {
     color: var(--text-secondary);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     margin: 0 0.25rem;
 }
 
 .footer-text {
     color: var(--text-secondary);
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-weight: 400;
     letter-spacing: -0.01em;
@@ -1165,8 +1147,8 @@ button.footer-contact-icon {
 }
 
 .footer-contact-info {
-    color: var(--text-muted);
-    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
     font-family: 'JetBrains Mono', 'Courier New', monospace;
     font-weight: 400;
     letter-spacing: -0.01em;
@@ -1221,6 +1203,13 @@ button.footer-contact-icon {
    Email Page overlay (spatialspec-style form)
    ============================================= */
 
+/* When email form is open, hide header/main/footer so only background image shows through overlay */
+body.email-form-open .main-header,
+body.email-form-open .main-content,
+body.email-form-open .site-footer {
+    visibility: hidden;
+}
+
 .email-page-overlay {
     position: fixed;
     top: 0;
@@ -1234,9 +1223,9 @@ button.footer-contact-icon {
     justify-content: center;
     padding: 2rem;
     overflow-y: auto;
-    background: rgba(10, 10, 11, 0.25);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: rgba(10, 10, 11, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     opacity: 0;
     transition: opacity 0.3s var(--transition);
 }
@@ -1414,7 +1403,7 @@ button.footer-contact-icon {
     }
 
     .header-tagline {
-        font-size: 0.875rem;
+        font-size: 1.125rem;
         padding: 0.4rem 1.5rem 0.75rem;
         line-height: 1.5;
     }
@@ -1462,29 +1451,6 @@ button.footer-contact-icon {
         padding: 2rem 1.5rem 4rem;
     }
 
-    .hero-image-section {
-        padding: 0 1rem;
-    }
-
-    .hero-image-container {
-        border-radius: 16px;
-        padding: 1.5rem;
-    }
-
-    .hero-image {
-        max-width: 100%;
-    }
-
-    .hero-image-text {
-        padding: 2rem 1.5rem;
-        font-size: clamp(2rem, 10vw, 4rem);
-    }
-
-    .about-section {
-        padding: 2.5rem 1.5rem;
-        margin: 0 auto;
-    }
-
     .services-section {
         padding: 2.5rem 1rem;
     }
@@ -1501,6 +1467,15 @@ button.footer-contact-icon {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
+    }
+
+    .footer-row-single {
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .footer-row-single .footer-right-item {
+        justify-content: flex-end;
     }
 
     .footer-left-item {
@@ -1540,8 +1515,13 @@ button.footer-contact-icon {
         margin-bottom: 1.5rem;
     }
 
+    .site-footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
     .footer-content {
-        padding: 1rem 1.5rem;
+        padding: 1rem 0;
     }
 
     .contact-form input,

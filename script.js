@@ -39,10 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const video = tile.querySelector('.tile-video video');
         
         tile.addEventListener('click', function() {
-            const connectButton = document.querySelector('.btn-connect-footer-link');
-            if (connectButton) {
-                connectButton.click();
-            }
+            openEmailPage();
         });
         
         tile.addEventListener('mouseenter', function() {
@@ -120,41 +117,12 @@ document.addEventListener('DOMContentLoaded', function() {
     setupDropdownToggle('.btn-footer-link');
 
     // =============================================
-    // Close legal page function
-    // =============================================
-    
-    function closeLegalPage() {
-        const legalPage = document.getElementById('legal-page');
-        const servicesSection = document.getElementById('services-section');
-        const aboutSection = document.getElementById('about-section');
-        const legalButtons = document.querySelectorAll('.btn-footer-text[data-legal]');
-        if (legalPage) {
-            legalPage.classList.remove('show');
-            legalPage.style.display = 'none';
-            legalPage.style.opacity = '0';
-            if (servicesSection) {
-                servicesSection.style.display = 'block';
-            }
-            if (aboutSection) {
-                aboutSection.style.display = 'none';
-            }
-            legalButtons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            closeAllDropdowns();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    }
-
-    // =============================================
     // Close connect page function
     // =============================================
     
     function closeConnectPage() {
         const connectPage = document.getElementById('connect-page');
         const servicesSection = document.getElementById('services-section');
-        const aboutSection = document.getElementById('about-section');
-        const connectButton = document.querySelector('.btn-connect-footer-link');
         const siteFooter = document.querySelector('.site-footer');
         if (connectPage) {
             const isMobile = window.innerWidth <= 600;
@@ -187,13 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if (servicesSection) {
                 servicesSection.style.display = 'block';
             }
-            if (aboutSection) {
-                aboutSection.style.display = 'none';
-            }
-            if (connectButton) {
-                connectButton.classList.remove('active');
-                connectButton.textContent = 'Contact';
-            }
         }
     }
 
@@ -207,11 +168,10 @@ document.addEventListener('DOMContentLoaded', function() {
         emailPage.classList.remove('show');
         emailPage.style.display = 'none';
         emailPage.style.opacity = '0';
+        document.body.classList.remove('email-form-open');
         document.body.style.overflow = '';
         const servicesSection = document.getElementById('services-section');
-        const aboutSection = document.getElementById('about-section');
         if (servicesSection) servicesSection.style.display = 'block';
-        if (aboutSection) aboutSection.style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -220,10 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
         closeConnectPage();
         closeLegalBodyPage();
         closeAllDropdowns();
-        const servicesSection = document.getElementById('services-section');
-        const aboutSection = document.getElementById('about-section');
-        if (servicesSection) servicesSection.style.display = 'none';
-        if (aboutSection) aboutSection.style.display = 'none';
+        document.body.classList.add('email-form-open');
         emailPage.style.display = 'flex';
         emailPage.style.opacity = '0';
         document.body.style.overflow = 'hidden';
@@ -264,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const privacyPage = document.getElementById('privacy-page');
     const termsPage = document.getElementById('terms-page');
     const servicesSection = document.getElementById('services-section');
-    const aboutSection = document.getElementById('about-section');
 
     function openLegalBodyPage(pageId) {
         const page = document.getElementById(pageId);
@@ -273,7 +229,6 @@ document.addEventListener('DOMContentLoaded', function() {
         closeEmailPage();
         closeAllDropdowns();
         if (servicesSection) servicesSection.style.display = 'none';
-        if (aboutSection) aboutSection.style.display = 'none';
         [privacyPage, termsPage].forEach(p => {
             if (p) {
                 p.classList.remove('show');
@@ -300,7 +255,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         if (servicesSection) servicesSection.style.display = 'block';
-        if (aboutSection) aboutSection.style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -316,85 +270,6 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
             closeLegalBodyPage();
-        });
-    });
-
-    // =============================================
-    // Connect page toggle for footer Connect button
-    // =============================================
-    
-    document.querySelectorAll('.btn-connect-footer-link').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.stopPropagation();
-            const connectPage = document.getElementById('connect-page');
-            const servicesSection = document.getElementById('services-section');
-            const aboutSection = document.getElementById('about-section');
-            if (connectPage) {
-                const isConnectPageShowing = connectPage.classList.contains('show') && connectPage.style.display !== 'none';
-                
-                if (isConnectPageShowing) {
-                    button.textContent = 'Contact';
-                    closeConnectPage();
-                    return;
-                }
-                
-                closeLegalPage();
-                closeLegalBodyPage();
-                closeEmailPage();
-                closeAllDropdowns();
-                this.classList.add('active');
-                button.textContent = 'Close';
-                if (servicesSection) {
-                    servicesSection.style.display = 'none';
-                }
-                if (aboutSection) {
-                    aboutSection.style.display = 'none';
-                }
-                
-                const isMobile = window.innerWidth <= 600;
-                const currentScrollY = window.scrollY;
-                
-                let startX = 0;
-                let startY = 0;
-                if (!isMobile) {
-                    const connectButtonRect = this.getBoundingClientRect();
-                    const buttonCenterX = connectButtonRect.left + (connectButtonRect.width / 2);
-                    const buttonCenterY = connectButtonRect.top + (connectButtonRect.height / 2);
-                    const viewportCenterX = window.innerWidth / 2;
-                    const viewportCenterY = window.innerHeight / 2;
-                    
-                    startX = buttonCenterX - viewportCenterX;
-                    startY = buttonCenterY - viewportCenterY;
-                }
-                
-                if (isMobile) {
-                    connectPage.style.opacity = '0';
-                    connectPage.style.transform = '';
-                    connectPage.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                    document.body.style.position = 'fixed';
-                    document.body.style.width = '100%';
-                    document.body.style.top = `-${currentScrollY}px`;
-                } else {
-                    connectPage.style.opacity = '0';
-                    connectPage.style.transform = `translate(${startX}px, ${startY}px) scale(0.3)`;
-                    connectPage.style.display = 'flex';
-                }
-                
-                connectPage.offsetHeight;
-                connectPage.classList.remove('show');
-                setTimeout(() => {
-                    connectPage.classList.add('show');
-                    if (!isMobile) {
-                        const nameInput = connectPage.querySelector('input[name="name"]');
-                        if (nameInput) {
-                            setTimeout(() => {
-                                nameInput.focus();
-                            }, 100);
-                        }
-                    }
-                }, 10);
-            }
         });
     });
 
@@ -482,7 +357,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeAllDropdowns();
-            closeLegalPage();
             closeConnectPage();
             closeEmailPage();
             closeLegalBodyPage();

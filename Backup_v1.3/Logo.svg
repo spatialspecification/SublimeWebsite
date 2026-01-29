@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Logo with transparent background -->
+    <image id="logo-image" xlink:href="SublimeLogoNoBG.png" width="1200" height="600" preserveAspectRatio="xMidYMid meet"/>
+  </defs>
+  
+  <!-- Main logo image - transparent background -->
+  <use xlink:href="#logo-image"/>
+</svg>
