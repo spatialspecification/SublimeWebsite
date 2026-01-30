@@ -1,0 +1,9 @@
+# Fresh Deployment 2026-01-28 22:43:13
+
+# Form delivery to mitchconcrete@hotmail.com (Web3Forms)
+# 1. Go to https://web3forms.com
+# 2. Enter email: mitchconcrete@hotmail.com and create an Access Key
+# 3. In index.html, set the hidden input in both forms:
+#    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+#    (email-contact-form and connect-contact-form)
+# 4. Save and deploy. Submissions will be sent to mitchconcrete@hotmail.com

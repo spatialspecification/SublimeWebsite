@@ -42,7 +42,7 @@ html {
 }
 
 body {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.7;
@@ -180,7 +180,7 @@ main,
 }
 
 .splash-logo {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
     font-weight: 700;
     color: #ffffff;
@@ -192,7 +192,7 @@ main,
 }
 
 .splash-logo-subtitle {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(0.875rem, 2.5vw, 1.125rem);
     font-weight: 500;
     color: var(--text-secondary);
@@ -275,7 +275,7 @@ main,
 }
 
 .header-logo-title {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(1rem, 2.8vw, 2rem);
     font-weight: 700;
     color: #ffffff;
@@ -285,7 +285,7 @@ main,
 }
 
 .header-logo-subtitle {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(0.75rem, 2vw, 1rem);
     font-weight: 500;
     color: var(--text-secondary);
@@ -309,7 +309,7 @@ main,
 .header-tagline {
     margin: 0;
     padding: 0.5rem 2rem 1rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.25rem;
     line-height: 1.6;
     color: #ffffff;
@@ -402,7 +402,7 @@ button.header-icon {
 
 
 .services-title {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
     margin-bottom: 3rem;
@@ -570,7 +570,7 @@ button.header-icon {
     color: var(--text-primary);
     margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
@@ -623,7 +623,7 @@ button.header-icon {
 
 .contact-cta-text {
     margin: 0 0 1.5rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.25rem;
     line-height: 1.85;
     color: #ffffff;
@@ -686,7 +686,7 @@ button.contact-cta-icon {
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 1rem;
     letter-spacing: -0.01em;
@@ -720,7 +720,7 @@ button.contact-cta-icon {
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 0.875rem;
     letter-spacing: -0.01em;
@@ -823,7 +823,7 @@ button.contact-cta-icon {
     border: none;
     border-radius: 8px;
     padding: 0.75rem 1rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.9375rem;
     color: var(--text-primary);
     transition: all 0.25s var(--transition);
@@ -990,7 +990,7 @@ button.contact-cta-icon {
 
 .footer-copyright {
     color: var(--text-secondary);
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8rem;
     font-weight: 400;
     margin: 0;
@@ -1089,7 +1089,7 @@ button.footer-contact-icon {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 1rem;
     letter-spacing: -0.01em;
@@ -1112,7 +1112,7 @@ button.footer-contact-icon {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     font-size: 0.8rem;
     letter-spacing: -0.01em;
@@ -1144,7 +1144,7 @@ button.footer-contact-icon {
 .footer-text {
     color: var(--text-secondary);
     font-size: 0.8rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     letter-spacing: -0.01em;
 }
@@ -1162,7 +1162,7 @@ button.footer-contact-icon {
 .footer-contact-info {
     color: var(--text-secondary);
     font-size: 0.8rem;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 400;
     letter-spacing: -0.01em;
     line-height: 1.6;
@@ -1289,7 +1289,7 @@ body.legal-body-open .contact-cta-section {
     background: transparent;
     border: none;
     color: #ffffff;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: -0.01em;
@@ -1350,7 +1350,7 @@ body.legal-body-open .contact-cta-section {
 }
 
 .legal-body-title {
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-primary);
@@ -1369,7 +1369,7 @@ body.legal-body-open .contact-cta-section {
     background: transparent;
     border: none;
     color: #ffffff;
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1;

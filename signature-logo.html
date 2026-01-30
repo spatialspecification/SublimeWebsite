@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUBLiME signature logo – export to image</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #f3f4f6;
+    }
+    /* Signature block – white background for documents/email */
+    .signature-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 20px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .signature-logo img {
+      width: 48px;
+      height: 48px;
+      display: block;
+      object-fit: contain;
+    }
+    .signature-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+    .signature-title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.1em;
+      line-height: 1;
+    }
+    .signature-subtitle {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: #6b7280;
+      letter-spacing: 0.1em;
+      line-height: 1;
+    }
+    .hint {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: sans-serif;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+  <div class="signature-logo" id="signature-block">
+    <img src="SUBLiME_logo_NoBG.png" alt="SUBLiME">
+    <div class="signature-brand">
+      <span class="signature-title">SUBLiME</span>
+      <span class="signature-subtitle">Concreting</span>
+    </div>
+  </div>
+  <p class="hint">Screenshot this white block or use a browser extension to export as PNG for email/documents.</p>
+</body>
+</html>
