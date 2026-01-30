@@ -235,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
         closeConnectPage();
         closeEmailPage();
         closeAllDropdowns();
+        document.body.classList.add('legal-body-open');
         if (servicesSection) servicesSection.style.display = 'none';
         [privacyPage, termsPage].forEach(p => {
             if (p) {
@@ -251,9 +252,16 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             page.classList.add('show');
         }, 10);
+        document.querySelectorAll('.btn-footer-text[data-legal-page]').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-legal-page') === pageId);
+        });
     }
 
     function closeLegalBodyPage() {
+        document.body.classList.remove('legal-body-open');
+        document.querySelectorAll('.btn-footer-text[data-legal-page]').forEach(btn => {
+            btn.classList.remove('active');
+        });
         [privacyPage, termsPage].forEach(p => {
             if (p) {
                 p.classList.remove('show');
@@ -269,7 +277,13 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
             const pageId = this.getAttribute('data-legal-page');
-            if (pageId) openLegalBodyPage(pageId);
+            if (!pageId) return;
+            const page = document.getElementById(pageId);
+            if (page && page.classList.contains('show')) {
+                closeLegalBodyPage();
+            } else {
+                openLegalBodyPage(pageId);
+            }
         });
     });
 
