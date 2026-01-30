@@ -276,10 +276,10 @@ main,
 
 .header-logo-title {
     font-family: 'JetBrains Mono', 'Courier New', monospace;
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1rem, 2.8vw, 2rem);
     font-weight: 700;
     color: #ffffff;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     white-space: nowrap;
     line-height: 1;
 }
@@ -1488,29 +1488,41 @@ body.legal-body-open .contact-cta-section {
 
     .footer-row {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 1rem;
     }
 
     .footer-row-single {
-        justify-content: space-between;
-        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .footer-row-single .footer-left-item {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-row-single .footer-center-item {
+        justify-content: center;
     }
 
     .footer-row-single .footer-right-item {
-        justify-content: flex-end;
+        justify-content: center;
     }
 
     .footer-left-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem 1rem;
     }
 
     .footer-right-item {
-        text-align: left;
+        text-align: center;
         width: 100%;
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .footer-contact-icons {
